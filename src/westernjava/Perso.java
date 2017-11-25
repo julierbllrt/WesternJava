@@ -151,14 +151,17 @@ public class Perso {
         {
             case 0:
                 return(randomLady(list.get(0)));
-      
             case 1:
-                return(randomCowboy(list.get(1)));
-                
+                return(randomThugLady(list.get(0)));
             case 2:
-                return(randomThug(list.get(2)));
-               
+                return(randomCowboy(list.get(1)));
             case 3:
+                return(randomSherif(list.get(1)));
+            case 4:
+                return(randomBadCop(list.get(1)));
+            case 5:
+                return(randomThug(list.get(2)));
+            case 6:
                 return(randomIndian(list.get(3)));
               
             default:

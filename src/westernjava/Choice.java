@@ -104,7 +104,6 @@ public class Choice {
                         //displayPerso(choice, list);
                         do{
                             Action.humain(choice,personnage,list);
-                            
                             input = scanner.nextLine();
                         }while(!input.contains("autre"));
                         

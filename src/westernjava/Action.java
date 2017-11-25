@@ -30,6 +30,7 @@ public class Action {
             case 0:
                 chiffre=random.nextInt(3);
                 break;
+                
             case 1:
                 System.out.println("Taper le numero de l'action que vous "
                         + "voulez.");
@@ -40,6 +41,7 @@ public class Action {
                 input = scanner.nextLine();
                 chiffre = Integer.parseInt(input);
                 break;
+                
             default:
                 if(obj.lieu instanceof MainStreet){
                     //action dispo street
@@ -75,21 +77,25 @@ public class Action {
         switch(chiffre){
             
             case(0):
+                obj.lieu.Exit(obj);
+                break;
+                
+             case(1):
+                //kidnapp a lady 
+                //(ThugLady)obj 
+                break;
+        
+            case(2):
                 Action.getChanged(obj);
                 break;
 
-            case(1):
-                Action.talkToSomeone(choice, obj, list);
-                obj.introduceYourself();
-                break;
-            case(2):
-                obj.lieu.Exit(obj);
-                break;
             case(3):
-                //kidnapp a lady 
-                //(ThugLady)obj 
+                Action.talkToSomeone(choice, obj, list);
+                break;
             
-        }
+        }       
+   
+           
     }
     
     public static void cowboy(int choice,Cowboy obj,
@@ -229,8 +235,8 @@ public class Action {
     }
     public static void shootSomeone(Cowboy obj,ArrayList<ArrayList<ArrayList<Humain>>> list){
         if(list.get(2).size()>0&&list.get(1).size()>0){
-            Thug badboy = (Thug) randomHumain(3, 2, list);
-            Sherif cop = (Sherif) randomHumain(3, 1, list);
+            Thug badboy = (Thug) randomHumain(3, 5, list);
+            Sherif cop = (Sherif) randomHumain(3, 3, list);
             obj.shoot(badboy,cop);
         }
         else{
@@ -252,6 +258,9 @@ public class Action {
     
     public static void talkToSomeone(int choice, Humain obj, ArrayList<ArrayList<ArrayList<Humain>>> list){
         Humain someone = randomHumain(0, 0, list);
+        while(someone==obj){
+            someone = randomHumain(0, 0, list);
+        }
         obj.introduceYourself();
         someone.introduceYourself();
         
