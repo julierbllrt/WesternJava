@@ -5,8 +5,6 @@
  */
 package westernjava;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author ISEN
@@ -16,7 +14,6 @@ public class Thug extends Humain implements OutTheLaw{
     int reward;
     String look;
     boolean isInJail;
-    Perso perso = new Perso();
 
     public Thug(int nbKidnappedLady, int reward, String look, boolean isInJail, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
@@ -27,13 +24,13 @@ public class Thug extends Humain implements OutTheLaw{
     }
    
     
+    @Override
     public void escape(){
         if(this.isInJail){
             isInJail = false;
             action(this.name+" s'échappe");
             talk("Je suis liiibre!!!");
         }
-                      
     }
     
     @Override
@@ -42,8 +39,8 @@ public class Thug extends Humain implements OutTheLaw{
         talk("J'suis "+ name +". Je vais mettre cette ville à feu et à sang.");
     }
 
-    public void kidnappedLady(ArrayList<ArrayList<ArrayList<Humain>>> list) {
-        Lady girl = perso.randomLady(list.get(0));
+    @Override
+    public void kidnappedLady(Lady girl) {
         if(!girl.isKidnapped){
             action(this.name+" kidnappe "+girl.name);
             talk(girl.name+", tu es à moi maintenant!");

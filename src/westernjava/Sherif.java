@@ -16,8 +16,6 @@ public class Sherif extends Cowboy{
         super(popularity, adjective, money, name, favoriteDrink, lieu);
         this.nbCatchedThug = nbCatchedThug;
     }
-
-    
     
     public void catchAThug(Thug badboy){
         action(this.name+" capture "+badboy.name);

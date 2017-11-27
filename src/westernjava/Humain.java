@@ -5,6 +5,7 @@
  */
 package westernjava;
 
+
 /**
  *
  * @author ISEN
@@ -33,6 +34,12 @@ public class Humain {
         talk("Salut, je m'appelle "+name+". Je suis nouveau en ville.");
     }
     
+    public void talkToSomeone(Humain someone){
+        introduceYourself();
+        someone.introduceYourself();
+    
+    }
+    
     public String getName(){
         return name;
     }
@@ -42,7 +49,26 @@ public class Humain {
         return favoriteDrink;
     }
     
-    public Lieux where(){
-        return lieu;
+    public void goTo(Lieux lieux){
+        lieu.exit(this);
+        lieu=lieux;
+        lieu.entrer(this);
+        action(name+" est entré dans "+lieu.name);
     }
+    
+    public void goOut(){
+        lieu.exit(this);
+        action(name+" est sorti sur "+lieu.name);
+    }
+    
+    public void orderADrink(String favoriteDrink){
+        Bar bar = (Bar) this.lieu;
+        Barman barman = bar.getBarman();
+        action(name+" a commander un verre");
+        talk("Hey"+barman.name+" donne moi un "+favoriteDrink);
+        barman.serve(this);
+        
+    }
+    
+    
 }

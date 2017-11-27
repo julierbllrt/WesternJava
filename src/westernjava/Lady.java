@@ -15,6 +15,7 @@ public class Lady extends Humain{
     boolean isKidnapped;
     String pantieColor;
     Random random =new Random();
+    
 
     public Lady(boolean isKidnapped, String pantieColor, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
@@ -22,10 +23,21 @@ public class Lady extends Humain{
         this.pantieColor = pantieColor;
     }
 
-    
     public void getKidnapped(Thug badboy){
         action(badboy.name+" a kidnappé "+this.name);
         talk("Lâche-moi "+badboy.name+"!");
+        isKidnapped = true;
+    }
+    
+    public void getKidnapped(ThugLady badgirl){
+        action(badgirl.name+" a kidnappé "+this.name);
+        talk("Lâche-moi "+badgirl.name+"!");
+        isKidnapped = true;
+    }
+    
+    public void getKidnapped(BadCop badgirl){
+        action(badgirl.name+" a kidnappé "+this.name);
+        talk("Mais "+badgirl.name+" vous êtes un cowbow!!");
         isKidnapped = true;
     }
     
@@ -35,13 +47,10 @@ public class Lady extends Humain{
         isKidnapped = false;
     }
     
-    public void getChanged(String color){
-        
-    }
     public void getChanged(){
         String[] couleurTable={"rose", "noire","bleu","blanche"};
         int chiffre=random.nextInt(couleurTable.length);
-         pantieColor = couleurTable[chiffre];
+        pantieColor = couleurTable[chiffre];
         action(this.name+" change de culotte");
         talk("Trop belle ma nouvelle culotte "+this.pantieColor+".");   
     }

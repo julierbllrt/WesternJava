@@ -23,15 +23,23 @@ public class ThugLady extends Lady implements OutTheLaw{
         this.isInJail = isInJail;
     }
 
-    
-
-    
+    @Override
     public void kidnappedLady(Lady girl) {
         nbKidnappedLady++;
-        girl.isKidnapped=true;
+        talk("Enfin, je t'attrape"+girl.name);
+        girl.getKidnapped(this);
+    }
+    
+    @Override
+    public void escape(){
+        if(this.isInJail){
+            isInJail = false;
+            action(this.name+" s'échappe");
+            talk("Enfin!");
+        }
     }
 
-
+    @Override
     public void getInJail(Sherif boy) {
         talk("Merde! Je me vengerais"+boy.name+"!");
         isInJail=true;
@@ -39,7 +47,8 @@ public class ThugLady extends Lady implements OutTheLaw{
     }
 
 
-    public void addReward(int money) {
+    @Override
+    public void addReward(int money){
         reward+=money;
     }
     

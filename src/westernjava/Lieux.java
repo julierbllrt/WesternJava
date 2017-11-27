@@ -21,7 +21,7 @@ public abstract class Lieux {
         this.people = people;
     }
     
-    public abstract void Entrer(Humain perso);
-    public abstract void Exit(Humain perso);
+    public abstract void entrer(Humain perso);
+    public abstract void exit(Humain perso);
     
 }

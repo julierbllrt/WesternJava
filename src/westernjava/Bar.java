@@ -14,27 +14,33 @@ import java.util.ArrayList;
 public class Bar extends Lieux{
     Boolean open;
     MainStreet out;
-    
-    public Bar(Boolean open, String name, ArrayList people, MainStreet out) {
+    Barman barman;
+
+    public Bar(Boolean open, MainStreet out, Barman barman, String name, ArrayList people) {
         super(name, people);
         this.open = open;
         this.out = out;
+        this.barman = barman;
     }
     
-    public void Opening(){
-        Barman pierre = new Barman("Pierre", "rhum",this);
+    public Barman getBarman(){
+        return barman;
+    }
+    
+    
+    public void opening(){
         open=true;
-        people.add(pierre);
+        people.add(barman);
     }
     
     @Override
-    public void Exit(Humain perso){
+    public void exit(Humain perso){
         people.remove(perso);
-        out.Entrer(perso);
+        out.entrer(perso);
     }
     
     @Override
-    public void Entrer(Humain perso){
+    public void entrer(Humain perso){
         perso.lieu = this;
         people.add(perso);
     }

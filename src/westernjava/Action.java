@@ -54,6 +54,12 @@ public class Action {
                     System.out.println("3 parler à quelqu'un");
                     input = scanner.nextLine();
                     chiffre = Integer.parseInt(input);
+                    
+                    switch(chiffre){
+                        case(0):
+                            obj.goTo(list_lieux[0]);
+                            break;
+                    }
                 }
                 else if(obj.lieu instanceof Bar){
                     System.out.println(obj.name+" est dans  "+obj.lieu.name);
@@ -66,6 +72,15 @@ public class Action {
                     System.out.println("4 commander à boire");
                     input = scanner.nextLine();
                     chiffre = Integer.parseInt(input);
+                    
+                    switch(chiffre){
+                        case(0):
+                            obj.goOut();
+                            break;
+                        case(4):
+                            obj.orderADrink(obj.favoriteDrink);
+                            break;
+                    }
                 }
                 else{
                     //action autre
@@ -75,15 +90,14 @@ public class Action {
         }
 
         switch(chiffre){
-            
-            case(0):
-                obj.lieu.Exit(obj);
-                obj.lieu=list_lieux[0];
-                break;
                 
-             case(1):
-                //kidnapp a lady 
-                //(ThugLady)obj 
+            case(1):
+                ThugLady badlady = new ThugLady(0,0,"nouvelle",false,obj.isKidnapped,obj.pantieColor,obj.name,obj.favoriteDrink,obj.lieu);
+                Lady girl = perso.randomLady(list.get(0));
+                while(girl==obj){
+                    girl = perso.randomLady(list.get(0));
+                }
+                badlady.kidnappedLady(girl);
                 break;
         
             case(2):
@@ -91,12 +105,14 @@ public class Action {
                 break;
 
             case(3):
-                talkToSomeone(choice, obj, list);
+                Humain someone = perso.randomHumain(0, 0, list);
+                while(someone==obj){
+                    someone = perso.randomHumain(0, 0, list);
+                }
+                obj.talkToSomeone(someone);
                 break;
-            
+                
         }       
-   
-           
     }
     
     public void cowboy(int choice,Cowboy obj,
@@ -119,15 +135,24 @@ public class Action {
         
         switch(chiffre){
             case(0):
-                obj.shoot(list);
+                if(list.get(2).size()>0&&list.get(1).size()>0){
+                    Thug badboy = (Thug) perso.randomHumain(3, 5, list);
+                    Sherif cop = (Sherif) perso.randomHumain(3, 3, list);
+                    obj.shoot(badboy,cop);
+                }
                 break;
 
             case(1):
-                obj.freeTheLady(list);
+                Lady girl = (Lady) perso.randomHumain(3,0,list);
+                obj.freeTheLady(girl);
                 break;
 
             case(2):
-                obj.introduceYourself();
+                Humain someone = perso.randomHumain(0, 0, list);
+                while(someone==obj){
+                    someone = perso.randomHumain(0, 0, list);
+                }
+                obj.talkToSomeone(someone);
                 break;
 
         }
@@ -157,12 +182,16 @@ public class Action {
                 break;
 
             case(1):
-                
-                obj.kidnappedLady(list);
+                Lady girl = perso.randomLady(list.get(0));
+                obj.kidnappedLady(girl);
                 break;
                    
             case(2):
-                obj.introduceYourself();
+                Humain someone = perso.randomHumain(0, 0, list);
+                while(someone==obj){
+                    someone = perso.randomHumain(0, 0, list);
+                }
+                obj.talkToSomeone(someone);
                 break;
 
         }
@@ -187,7 +216,11 @@ public class Action {
         
         switch(chiffre){             
             case(0):
-                obj.introduceYourself();
+                Humain someone = perso.randomHumain(0, 0, list);
+                while(someone==obj){
+                    someone = perso.randomHumain(0, 0, list);
+                }
+                obj.talkToSomeone(someone);
                 break;
         }
     }
@@ -218,17 +251,4 @@ public class Action {
    
     
     
-    
-    
-    
-    public void talkToSomeone(int choice, Humain obj, ArrayList<ArrayList<ArrayList<Humain>>> list){
-        Humain someone = perso.randomHumain(0, 0, list);
-        while(someone==obj){
-            someone = perso.randomHumain(0, 0, list);
-        }
-        obj.introduceYourself();
-        someone.introduceYourself();
-        
-    
-    }
 }

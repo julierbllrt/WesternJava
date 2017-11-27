@@ -10,7 +10,7 @@ package westernjava;
  * @author ISEN
  */
 public class Barman extends Humain{
-
+    
     public Barman(String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
     }

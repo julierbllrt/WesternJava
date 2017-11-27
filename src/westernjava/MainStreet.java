@@ -19,13 +19,14 @@ public class MainStreet extends Lieux{
     }
     
     @Override
-    public void Exit(Humain perso){
+    public void exit(Humain perso){
         people.remove(perso);
     }
     
     @Override
-    public void Entrer(Humain perso){
+    public void entrer(Humain perso){
         people.add(perso);
+        perso.lieu=this;
     }
     
 }

@@ -12,6 +12,7 @@ package westernjava;
 public class Indian extends Humain{
     int nbFeather;
     String totem;
+    
 
     public Indian(int nbFeather, String totem, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
@@ -19,8 +20,6 @@ public class Indian extends Humain{
         this.totem = totem;
     }
 
-    
-    
     @Override
     public void talk (String blablabla){
         System.out.println("L'indien "+name+": "+blablabla);
