@@ -5,6 +5,8 @@
  */
 package westernjava;
 
+import java.util.Random;
+
 /**
  *
  * @author ISEN
@@ -12,6 +14,7 @@ package westernjava;
 public class Lady extends Humain{
     boolean isKidnapped;
     String pantieColor;
+    Random random =new Random();
 
     public Lady(boolean isKidnapped, String pantieColor, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
@@ -33,7 +36,12 @@ public class Lady extends Humain{
     }
     
     public void getChanged(String color){
-        pantieColor = color;
+        
+    }
+    public void getChanged(){
+        String[] couleurTable={"rose", "noire","bleu","blanche"};
+        int chiffre=random.nextInt(couleurTable.length);
+         pantieColor = couleurTable[chiffre];
         action(this.name+" change de culotte");
         talk("Trop belle ma nouvelle culotte "+this.pantieColor+".");   
     }

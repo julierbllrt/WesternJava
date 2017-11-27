@@ -1,0 +1,2 @@
+ ArrayList<Humain> bar_people = new ArrayList();
+ ArrayList<Humain> street_people = new ArrayList();

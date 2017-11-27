@@ -8,20 +8,20 @@ package westernjava;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import static westernjava.Perso.randomHumain;
 
 /**
  *
  * @author ISEN
  */
 public class Action {
-    static Random random =new Random();
+    Random random =new Random();
+    Perso perso = new Perso();
 
     public Action() {
     }
     
      
-    public static void lady(int choice, Lady obj,
+    public void lady(int choice, Lady obj, Lieux[] list_lieux,
             ArrayList<ArrayList<ArrayList<Humain>>> list){ 
         int chiffre;
         Scanner scanner = new Scanner(System.in);
@@ -78,6 +78,7 @@ public class Action {
             
             case(0):
                 obj.lieu.Exit(obj);
+                obj.lieu=list_lieux[0];
                 break;
                 
              case(1):
@@ -86,11 +87,11 @@ public class Action {
                 break;
         
             case(2):
-                Action.getChanged(obj);
+                obj.getChanged();
                 break;
 
             case(3):
-                Action.talkToSomeone(choice, obj, list);
+                talkToSomeone(choice, obj, list);
                 break;
             
         }       
@@ -98,7 +99,7 @@ public class Action {
            
     }
     
-    public static void cowboy(int choice,Cowboy obj,
+    public void cowboy(int choice,Cowboy obj,
             ArrayList<ArrayList<ArrayList<Humain>>> list){ 
         int chiffre;
         if (choice==0){
@@ -118,11 +119,11 @@ public class Action {
         
         switch(chiffre){
             case(0):
-                Action.shootSomeone(obj, list);
+                obj.shoot(list);
                 break;
 
             case(1):
-                Action.freeTheLady(choice, obj, list);
+                obj.freeTheLady(list);
                 break;
 
             case(2):
@@ -132,7 +133,7 @@ public class Action {
         }
     }
     
-    public static void thug(int choice,Thug obj,
+    public void thug(int choice,Thug obj,
             ArrayList<ArrayList<ArrayList<Humain>>> list){ 
         int chiffre;
         if (choice==0){
@@ -152,23 +153,12 @@ public class Action {
         
         switch(chiffre){
             case(0):
-                if(obj.isInJail){
-                    obj.escape();
-                }
-                else{
-                    thug(choice,obj, list);
-                }
+               obj.escape();
                 break;
 
             case(1):
-                Lady girl;
-                girl = Perso.randomLady(list.get(0));
-                if(!girl.isKidnapped){
-                    obj.kidnappedLady(girl);
-                }
-                else{
-                    thug(choice,obj,list);
-                }
+                
+                obj.kidnappedLady(list);
                 break;
                    
             case(2):
@@ -178,7 +168,7 @@ public class Action {
         }
     }
     
-    public static void indian(int choice,Indian obj,
+    public void indian(int choice,Indian obj,
             ArrayList<ArrayList<ArrayList<Humain>>> list){ 
         int chiffre;
         if(choice==0){
@@ -202,12 +192,12 @@ public class Action {
         }
     }
     
-    public static void humain(int choice, Humain man,
+    public void humain(int choice, Humain man,Lieux[] list_lieux,
             ArrayList<ArrayList<ArrayList<Humain>>> list){
     
         if (man instanceof Lady){
             Lady personnage = (Lady) man;
-            lady(choice,personnage,list);
+            lady(choice,personnage,list_lieux,list);
         }
         
         if (man instanceof Cowboy){
@@ -226,40 +216,15 @@ public class Action {
         }
     }
    
-    public static void getChanged(Lady obj){
-        String couleur;
-        String[] couleurTable={"rose", "noire","bleu","blanche"};
-        int chiffre=random.nextInt(couleurTable.length);
-        couleur = couleurTable[chiffre];
-        obj.getChanged(couleur);
-    }
-    public static void shootSomeone(Cowboy obj,ArrayList<ArrayList<ArrayList<Humain>>> list){
-        if(list.get(2).size()>0&&list.get(1).size()>0){
-            Thug badboy = (Thug) randomHumain(3, 5, list);
-            Sherif cop = (Sherif) randomHumain(3, 3, list);
-            obj.shoot(badboy,cop);
-        }
-        else{
-            System.out.println("try again");
-        }
-    }
     
-    public static void freeTheLady(int choice, Cowboy obj, ArrayList<ArrayList<ArrayList<Humain>>> list){
-        Lady girl;
-        girl = (Lady) randomHumain(3,0,list);
-        if(!girl.isKidnapped){
-            obj.freeTheLady(girl);
-        }
-        else{
-            cowboy(choice,obj, list);
-        }
     
-    }
     
-    public static void talkToSomeone(int choice, Humain obj, ArrayList<ArrayList<ArrayList<Humain>>> list){
-        Humain someone = randomHumain(0, 0, list);
+    
+    
+    public void talkToSomeone(int choice, Humain obj, ArrayList<ArrayList<ArrayList<Humain>>> list){
+        Humain someone = perso.randomHumain(0, 0, list);
         while(someone==obj){
-            someone = randomHumain(0, 0, list);
+            someone = perso.randomHumain(0, 0, list);
         }
         obj.introduceYourself();
         someone.introduceYourself();

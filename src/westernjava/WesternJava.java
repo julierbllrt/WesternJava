@@ -5,7 +5,13 @@
  */
 package westernjava;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +19,8 @@ import java.util.ArrayList;
  */
 public class WesternJava {
 
+    static ArrayList<ArrayList<ArrayList<Humain>>> list = new ArrayList();
+    
     public static void printList(ArrayList <ArrayList <Humain>> list){
         
         for(int n = 0; n < list.size(); n++){
@@ -22,8 +30,7 @@ public class WesternJava {
         }
     }
     
-    public static void displayPerso(int choice,
-            ArrayList <ArrayList <ArrayList <Humain>>> list){
+    public static void displayPerso(int choice){
         for(int c = 0; c < list.size(); c++){
             for(int n = 0; n < list.get(c).size(); n++){
                 for (int i = 0; i < list.get(c).get(n).size(); i++){
@@ -63,15 +70,29 @@ public class WesternJava {
     
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        
+        Choice choice =new Choice();
+       
+        FileReader in = new FileReader("initialisation.txt");
+        int c ;
+        while((c=in.read())!=59){
+            System.out.print(c+" ");
+        }
+        
+        //FileWriter out = new FileWriter("C:\\java\\hello");
+      
+        
+        
        //Creation bar
         ArrayList<Humain> bar_people = new ArrayList();
         ArrayList<Humain> street_people = new ArrayList();
         
         MainStreet street = new MainStreet( "Oak Street", street_people);
         Bar saloon = new Bar(false, "Saloon", bar_people,street);
-       // Lieux[] lieux ={saloon};
+        Lieux[] lieux ={saloon};
        
         
         saloon.Opening();
@@ -138,7 +159,7 @@ public class WesternJava {
                 "whiskey",saloon);
         badcoplist.add(eden);
         
-        ArrayList<ArrayList<ArrayList<Humain>>> list = new ArrayList();
+        
         list.add(ladylist);
         list.add(cowboylist);
         list.add(thuglist);
@@ -147,7 +168,7 @@ public class WesternJava {
         
 
         
-        Choice.mode(list);
+        choice.mode(list,lieux);
     }
     
 }

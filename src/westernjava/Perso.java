@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Perso {
     
-     public static Lady randomLady(ArrayList <ArrayList <Humain>>ladyTable){
+     public Lady randomLady(ArrayList <ArrayList <Humain>>ladyTable){
         int colonne,ligne;
         Random random =new Random();
         Lady personnage;
@@ -31,8 +31,7 @@ public class Perso {
         return(null);
     }
     
-    public static ThugLady randomThugLady(
-            ArrayList <ArrayList <Humain>>ladyTable){
+    public ThugLady randomThugLady(ArrayList <ArrayList <Humain>>ladyTable){
         int colonne,ligne;
         Random random =new Random();
         ThugLady personnage;
@@ -49,8 +48,7 @@ public class Perso {
         return(null);
     }
     
-    public static Cowboy randomCowboy(
-            ArrayList <ArrayList <Humain>> cowboyTable){
+    public Cowboy randomCowboy(ArrayList <ArrayList <Humain>> cowboyTable){
         int colonne,ligne;
         Random random =new Random();
         Cowboy personnage;
@@ -67,7 +65,7 @@ public class Perso {
         return(null);
     }
     
-    public static Sherif randomSherif(
+    public Sherif randomSherif(
             ArrayList <ArrayList <Humain>> cowboyTable){
         int colonne,ligne;
         Random random =new Random();
@@ -85,7 +83,7 @@ public class Perso {
         return(null);
     }
     
-    public static BadCop randomBadCop(
+    public BadCop randomBadCop(
             ArrayList <ArrayList <Humain>> cowboyTable){
         int colonne,ligne;
         Random random =new Random();
@@ -103,7 +101,7 @@ public class Perso {
         return(null);
     }
     
-    public static Thug randomThug(ArrayList <ArrayList <Humain>> thugTable){
+    public Thug randomThug(ArrayList <ArrayList <Humain>> thugTable){
         int colonne,ligne;
         Random random =new Random();
         Thug personnage;
@@ -120,7 +118,7 @@ public class Perso {
         return(null);
     }
     
-    public static Indian randomIndian(
+    public Indian randomIndian(
             ArrayList <ArrayList <Humain>> indianTable){
         int colonne,ligne;
         Random random =new Random();
@@ -139,7 +137,7 @@ public class Perso {
     }
     
     
-    public static Humain randomHumain(int choice,int chiffre,
+    public Humain randomHumain(int choice,int chiffre,
             ArrayList<ArrayList<ArrayList<Humain>>> list){
         if (choice==0){
             String[] type={"Lady","Cowboy","Thug","Indian"};

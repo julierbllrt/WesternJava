@@ -14,8 +14,10 @@ import static westernjava.WesternJava.printList;
  * @author ISEN
  */
 public class Choice {
+    Perso perso = new Perso();
+    Action action = new Action();
     
-    public static Humain humain(int choice, 
+    public Humain humain(int choice, 
             ArrayList<ArrayList<ArrayList<Humain>>> list){
 
         Scanner scanner = new Scanner(System.in);   
@@ -26,16 +28,16 @@ public class Choice {
             input = scanner.nextLine();
             switch(input){
                 case "1":
-                    return Choice.perso(choice,0 ,list);
+                    return perso(choice,0 ,list);
                     
                 case "2":
-                    return Choice.perso(choice, 1,list);
+                    return perso(choice, 1,list);
                    
                 case "3":
-                    return Choice.perso(choice,2, list);
+                    return perso(choice,2, list);
                     
                 case "4":
-                    return Choice.perso(choice,3,list);
+                    return perso(choice,3,list);
                 default:
                     return list.get(3).get(0).get(0);
             }
@@ -43,7 +45,7 @@ public class Choice {
         
     }
     
-    public static Humain perso(int choice,int y,
+    public Humain perso(int choice,int y,
             ArrayList <ArrayList <ArrayList <Humain>>> list){
         
         Humain personnage;
@@ -64,7 +66,7 @@ public class Choice {
     }
     
     
-    public static void mode(ArrayList<ArrayList<ArrayList<Humain>>> list){
+    public void mode(ArrayList<ArrayList<ArrayList<Humain>>> list, Lieux[] list_lieux){
         Humain personnage;
         Scanner scanner = new Scanner(System.in); 
         String input;
@@ -76,17 +78,17 @@ public class Choice {
             switch(input){
                 case "1":
                     choice = 0;
-                    personnage = Perso.randomHumain(0,0,list);
-                    Action.humain(choice,personnage,list);
+                    personnage = perso.randomHumain(0,0,list);
+                    action.humain(choice,personnage,list_lieux,list);
                     break;
 
                 case "2":
                     choice = 1;
                     do{
-                        personnage = Choice.humain(choice, list);
+                        personnage = humain(choice, list);
                         
                         do{
-                            Action.humain(choice,personnage,list);
+                            action.humain(choice,personnage,list_lieux,list);
                             System.out.println("Entrer 'autre' pour choisir un "
                                     + "autre perso ou n'importe quoi si vous "
                                     + "voulez continuer.");
@@ -100,10 +102,10 @@ public class Choice {
                 case "3":
                     choice = 2;
                     do{
-                        personnage = Choice.humain(choice, list);
+                        personnage = humain(choice, list);
                         //displayPerso(choice, list);
                         do{
-                            Action.humain(choice,personnage,list);
+                            action.humain(choice,personnage,list_lieux,list);
                             input = scanner.nextLine();
                         }while(!input.contains("autre"));
                         
