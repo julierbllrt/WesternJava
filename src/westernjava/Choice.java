@@ -59,6 +59,8 @@ public class Choice {
         int pos = Integer.parseInt(input);
         int n = pos/10;
         int i = pos%10;
+        
+        System.out.println("");
 
         personnage = list.get(y).get(n).get(i);
         return personnage;
@@ -72,7 +74,7 @@ public class Choice {
         String input;
         do{
             System.out.println("\nEntrer 1 pour random; 2 pour choisir; "
-                    + "3 pour histoire (taper 'quitter' pour sortir)");
+                    + "3 pour histoire\n(taper 'quitter' pour sortir)");
             input = scanner.nextLine();
             int choice;
             switch(input){
@@ -89,27 +91,23 @@ public class Choice {
                         
                         do{
                             action.humain(choice,personnage,list_lieux,list);
-                            System.out.println("Entrer 'autre' pour choisir un "
-                                    + "autre perso ou n'importe quoi si vous "
-                                    + "voulez continuer.");
-                            input = scanner.nextLine();
+                            
+                            
                         }while(!input.contains("autre"));
-                        
+                    input = scanner.nextLine();
                     }while(!input.contains("mode"));
                     
                     break;
                     
                 case "3":
                     choice = 2;
+                    personnage = humain(choice, list);
+                    //displayPerso(choice, list);
                     do{
-                        personnage = humain(choice, list);
-                        //displayPerso(choice, list);
-                        do{
-                            action.humain(choice,personnage,list_lieux,list);
-                            input = scanner.nextLine();
-                        }while(!input.contains("autre"));
-                        
-                    }while(!input.contains("mode"));
+                        action.humain(choice,personnage,list_lieux,list);
+                        System.out.println("");
+                        input = scanner.nextLine();
+                    }while(!input.contains("quitter"));
                     
                     break;
             }

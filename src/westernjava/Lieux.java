@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public abstract class Lieux {
     String name;
-    ArrayList people = new ArrayList();
+    ArrayList<Humain> people = new ArrayList();
     
 
-    public Lieux(String name, ArrayList people) {
+    public Lieux(String name, ArrayList<Humain> people) {
         this.name = name;
         this.people = people;
     }

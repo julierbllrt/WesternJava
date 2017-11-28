@@ -87,7 +87,8 @@ public class WesternJava {
         ArrayList<Humain> street_people = new ArrayList();
         
         MainStreet street = new MainStreet( "Oak Street", street_people);
-        Bar saloon = new Bar(false, "Saloon", bar_people,street);
+        Barman pierre = new Barman("Pierre","eau",street);
+        Bar saloon = new Bar(false, street,pierre,"Saloon", bar_people);
         Lieux[] lieux ={saloon};
        
         
@@ -148,7 +149,7 @@ public class WesternJava {
         Cowboy james = new Cowboy(4,"celèbre",200,"James","scotch",saloon);
         simplecowboylist.add(james);
         
-        Indian gary = new Indian(12,"l'aigle","Gary","eau de source",street);
+        Indian gary = new Indian(12,"l'aigle","Gary","eau de source",saloon);
         simpleindianlist.add(gary);
         
         BadCop eden = new BadCop(0,0, "chauve", false, 2, "franc",0, "Eden", 

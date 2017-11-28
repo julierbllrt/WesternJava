@@ -14,11 +14,15 @@ public class Humain {
     String name;
     String favoriteDrink;
     Lieux lieu;
+    
+    
+    
 
     public Humain(String name, String favoriteDrink, Lieux lieu) {
         this.name = name;
         this.favoriteDrink = favoriteDrink;
         this.lieu = lieu;
+        lieu.entrer(this);
     }
     
     public void talk (String blablabla){

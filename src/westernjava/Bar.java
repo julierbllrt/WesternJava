@@ -29,8 +29,9 @@ public class Bar extends Lieux{
     
     
     public void opening(){
+        barman.lieu.exit(barman);
         open=true;
-        people.add(barman);
+        entrer(barman);
     }
     
     @Override

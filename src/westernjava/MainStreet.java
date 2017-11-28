@@ -25,8 +25,8 @@ public class MainStreet extends Lieux{
     
     @Override
     public void entrer(Humain perso){
-        people.add(perso);
         perso.lieu=this;
+        people.add(perso);
     }
     
 }

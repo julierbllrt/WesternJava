@@ -168,5 +168,14 @@ public class Perso {
         }    
     }
     
+    public Humain randomInList(int choice,int chiffre,
+           ArrayList<Humain> list){
+        
+        Random random =new Random();
+        chiffre=random.nextInt(list.size());
+        return list.get(chiffre);
+              
+    }
+    
     
 }
