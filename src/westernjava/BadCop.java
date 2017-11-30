@@ -16,7 +16,8 @@ public class BadCop extends Cowboy implements OutTheLaw{
     Boolean isInJail;
     
 
-    public BadCop(int nbKidnappedLady, int reward, String look, Boolean isInJail, int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
+    public BadCop(int nbKidnappedLady, int reward, String look, Boolean isInJail, 
+            int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
         super(popularity, adjective, money, name, favoriteDrink, lieu);
         this.nbKidnappedLady = nbKidnappedLady;
         this.reward = reward;

@@ -8,6 +8,7 @@ package westernjava;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static westernjava.WesternJava.printList;
+import static westernjava.WesternJava.displayPerso;
 
 /**
  *
@@ -31,7 +32,7 @@ public class Choice {
                     return perso(choice,0 ,list);
                     
                 case "2":
-                    return perso(choice, 1,list);
+                    return perso(choice,1,list);
                    
                 case "3":
                     return perso(choice,2, list);
@@ -51,6 +52,7 @@ public class Choice {
         Humain personnage;
         Scanner scanner = new Scanner(System.in); 
         printList(list.get(y));
+        displayPerso(y);
         System.out.println("Entrer le numéro du personnage que vous avez "
             + "choisit.");
 
@@ -91,8 +93,6 @@ public class Choice {
                         
                         do{
                             action.humain(choice,personnage,list_lieux,list);
-                            
-                            
                         }while(!input.contains("autre"));
                     input = scanner.nextLine();
                     }while(!input.contains("mode"));
@@ -102,13 +102,11 @@ public class Choice {
                 case "3":
                     choice = 2;
                     personnage = humain(choice, list);
-                    //displayPerso(choice, list);
+                    
                     do{
-                        action.humain(choice,personnage,list_lieux,list);
-                        System.out.println("");
+                        personnage = action.humain(choice,personnage,list_lieux,list);
                         input = scanner.nextLine();
                     }while(!input.contains("quitter"));
-                    
                     break;
             }
         }while(!input.contains("quitter"));

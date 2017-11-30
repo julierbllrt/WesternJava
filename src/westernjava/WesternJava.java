@@ -21,43 +21,43 @@ public class WesternJava {
         
         for(int n = 0; n < list.size(); n++){
             for (int i = 0; i < list.get(n).size(); i++){
-                System.out.println(n+""+i+" "+list.get(n).get(i).name);
+                System.out.println(n + "" + i + " " + list.get(n).get(i).name);
             }
         }
     }
     
-    public static void displayPerso(int choice){
-        for(int c = 0; c < list.size(); c++){
-            for(int n = 0; n < list.get(c).size(); n++){
-                for (int i = 0; i < list.get(c).get(n).size(); i++){
-                    Humain man=list.get(c).get(n).get(i);
-                    System.out.println("\n"+c+""+n+""+i+" "+man.name);
-                    System.out.println("Boisson favorite: "+man.favoriteDrink);
+    public static void displayPerso(int c){
+        for(int n = 0; n < list.get(c).size(); n++){
+            for (int i = 0; i < list.get(c).get(n).size(); i++){
+                Humain man=list.get(c).get(n).get(i);
+                System.out.println("\n" + n + "" + i + " " + man.name);
+                System.out.println("Boisson favorite: " + man.favoriteDrink);
 
-                    if (man instanceof Lady){
-                        Lady personnage = (Lady) man;
-                        System.out.println("Couleur de culotte: "+
-                                personnage.pantieColor);
-                    }
-
-                    if (man instanceof Cowboy){
-                        Cowboy personnage = (Cowboy) man;
-                         System.out.println("Popularité: "+
-                                 personnage.popularity);
-                    }
-
-                    if (man instanceof Thug){
-                        Thug personnage = (Thug) man;
-                         System.out.println("Alure: "+personnage.look);
-                    }
-
-                    if (man instanceof Indian){
-                        Indian personnage = (Indian) man;
-                         System.out.println("Totem: "+personnage.totem);
-                    }
-
-
+                if (man instanceof Lady){
+                    Lady personnage = (Lady) man;
+                    System.out.println("Couleur de culotte: " + personnage.pantieColor);
+                    System.out.println("Classe: " + personnage.getClass());
                 }
+
+                if (man instanceof Cowboy){
+                    Cowboy personnage = (Cowboy) man;
+                     System.out.println("Popularité: " + personnage.popularity);
+                     System.out.println("Classe: " + personnage.getClass());
+                }
+
+                if (man instanceof Thug){
+                    Thug personnage = (Thug) man;
+                     System.out.println("Alure: " + personnage.look);
+                     System.out.println("Classe: " + personnage.getClass());
+                }
+
+                if (man instanceof Indian){
+                    Indian personnage = (Indian) man;
+                     System.out.println("Totem: " + personnage.totem);
+                     System.out.println("Classe: " + personnage.getClass());
+                }
+
+
             }
         }
     }

@@ -23,6 +23,18 @@ public class Sherif extends Cowboy{
         badboy.getInJail(this);
     }
     
+    public void catchAThug(ThugLady badgirl){
+        action(this.name+" capture "+badgirl.name);
+        talk("Je te pensais mieux que ça "+badgirl.name+"...");
+        badgirl.getInJail(this);
+    }
+    
+    public void catchAThug(BadCop badcop){
+        action(this.name+" capture "+badcop.name);
+        talk("Je te pensais mieux que ça "+badcop.name+"...");
+        badcop.getInJail(this);
+    }
+    
     public void searchAThug(Thug badboy,int money){
         action(this.name+" met une récompence sur le tête de "+badboy.name);
         badboy.addReward(money);
