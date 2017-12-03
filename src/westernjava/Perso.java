@@ -14,7 +14,12 @@ import java.util.Random;
  */
 public class Perso {
 
-    public Lady randomLady(ArrayList<ArrayList<Humain>> ladyTable) {
+      /**
+       *
+       * @param ladyTable
+       * @return
+       */
+      public Lady randomLady(ArrayList<ArrayList<Humain>> ladyTable) {
         int colonne, ligne;
         Random random = new Random();
         Lady personnage;
@@ -30,7 +35,12 @@ public class Perso {
         return (null);
     }
 
-    public ThugLady randomThugLady(ArrayList<ArrayList<Humain>> ladyTable) {
+      /**
+       *
+       * @param ladyTable
+       * @return
+       */
+      public ThugLady randomThugLady(ArrayList<ArrayList<Humain>> ladyTable) {
         int colonne, ligne;
         Random random = new Random();
         ThugLady personnage;
@@ -46,7 +56,12 @@ public class Perso {
         return (null);
     }
 
-    public Cowboy randomCowboy(ArrayList<ArrayList<Humain>> cowboyTable) {
+      /**
+       *
+       * @param cowboyTable
+       * @return
+       */
+      public Cowboy randomCowboy(ArrayList<ArrayList<Humain>> cowboyTable) {
         int colonne, ligne;
         Random random = new Random();
         Cowboy personnage;
@@ -62,7 +77,12 @@ public class Perso {
         return (null);
     }
 
-    public Sherif randomSherif(
+      /**
+       *
+       * @param cowboyTable
+       * @return
+       */
+      public Sherif randomSherif(
             ArrayList<ArrayList<Humain>> cowboyTable) {
         int colonne, ligne;
         Random random = new Random();
@@ -79,7 +99,12 @@ public class Perso {
         return (null);
     }
 
-    public BadCop randomBadCop(
+      /**
+       *
+       * @param cowboyTable
+       * @return
+       */
+      public BadCop randomBadCop(
             ArrayList<ArrayList<Humain>> cowboyTable) {
         int colonne, ligne;
         Random random = new Random();
@@ -96,7 +121,12 @@ public class Perso {
         return (null);
     }
 
-    public Thug randomThug(ArrayList<ArrayList<Humain>> thugTable) {
+      /**
+       *
+       * @param thugTable
+       * @return
+       */
+      public Thug randomThug(ArrayList<ArrayList<Humain>> thugTable) {
         int colonne, ligne;
         Random random = new Random();
         Thug personnage;
@@ -112,7 +142,12 @@ public class Perso {
         return (null);
     }
 
-    public Indian randomIndian(
+      /**
+       *
+       * @param indianTable
+       * @return
+       */
+      public Indian randomIndian(
             ArrayList<ArrayList<Humain>> indianTable) {
         int colonne, ligne;
         Random random = new Random();
@@ -129,7 +164,14 @@ public class Perso {
         return (null);
     }
 
-    public Humain randomHumain(int choice, int chiffre,
+      /**
+       *
+       * @param choice
+       * @param chiffre
+       * @param list
+       * @return
+       */
+      public Humain randomHumain(int choice, int chiffre,
             ArrayList<ArrayList<ArrayList<Humain>>> list) {
         if (choice == 0) {
             String[] type = {"Lady", "Cowboy", "Thug", "Indian"};
@@ -159,7 +201,14 @@ public class Perso {
         }
     }
 
-    public Humain randomInList(int choice, int chiffre,
+      /**
+       *
+       * @param choice
+       * @param chiffre
+       * @param list
+       * @return
+       */
+      public Humain randomInList(int choice, int chiffre,
             ArrayList<Humain> list) {
 
         Random random = new Random();

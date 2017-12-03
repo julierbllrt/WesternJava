@@ -17,37 +17,64 @@ public class Lady extends Humain {
     String pantieColor;
     Random random = new Random();
 
-    public Lady(boolean isKidnapped, String pantieColor, String name, String favoriteDrink, Lieux lieu) {
+      /**
+       *
+       * @param isKidnapped
+       * @param pantieColor
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
+      public Lady(boolean isKidnapped, String pantieColor, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
         this.isKidnapped = isKidnapped;
         this.pantieColor = pantieColor;
     }
 
-    public void getKidnapped(Thug badboy) {
+      /**
+       *
+       * @param badboy
+       */
+      public void getKidnapped(Thug badboy) {
         action(badboy.name + " a kidnappé " + this.name);
         talk("Lâche-moi " + badboy.name + "!");
         isKidnapped = true;
     }
 
-    public void getKidnapped(ThugLady badgirl) {
+      /**
+       *
+       * @param badgirl
+       */
+      public void getKidnapped(ThugLady badgirl) {
         action(badgirl.name + " a kidnappé " + this.name);
         talk("Lâche-moi " + badgirl.name + "!");
         isKidnapped = true;
     }
 
-    public void getKidnapped(BadCop badgirl) {
+      /**
+       *
+       * @param badgirl
+       */
+      public void getKidnapped(BadCop badgirl) {
         action(badgirl.name + " a kidnappé " + this.name);
         talk("Mais " + badgirl.name + " vous êtes un cowbow!!");
         isKidnapped = true;
     }
 
-    public void getFree(Cowboy hero) {
+      /**
+       *
+       * @param hero
+       */
+      public void getFree(Cowboy hero) {
         action(hero.name + " a sauvé " + this.name);
         talk("Oooh merci " + hero.name + "!");
         isKidnapped = false;
     }
 
-    public void getChanged() {
+      /**
+       *
+       */
+      public void getChanged() {
         String[] couleurTable = {"rose", "noire", "bleu", "blanche"};
         int chiffre = random.nextInt(couleurTable.length);
         pantieColor = couleurTable[chiffre];
@@ -55,7 +82,10 @@ public class Lady extends Humain {
         talk("Trop belle ma nouvelle culotte " + this.pantieColor + ".");
     }
 
-    @Override
+      /**
+       *
+       */
+      @Override
     public void introduceYourself() {
         action(this.name + " se présente.");
         talk("Salut, je m'appelle " + name + ". Je vais séduire toute la ville.");

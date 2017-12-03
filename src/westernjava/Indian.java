@@ -14,18 +14,33 @@ public class Indian extends Humain {
     int nbFeather;
     String totem;
 
-    public Indian(int nbFeather, String totem, String name, String favoriteDrink, Lieux lieu) {
+      /**
+       *
+       * @param nbFeather
+       * @param totem
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
+      public Indian(int nbFeather, String totem, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
         this.nbFeather = nbFeather;
         this.totem = totem;
     }
 
-    @Override
+      /**
+       *
+       * @param blablabla
+       */
+      @Override
     public void talk(String blablabla) {
         System.out.println("L'indien " + name + ": " + blablabla);
     }
 
-    @Override
+      /**
+       *
+       */
+      @Override
     public void introduceYourself() {
         action(this.name + " se présente.");
         talk("Bonjour visage pâle, mon nom est " + name + " " + totem + ". Je fais partie de la tribu à la sortie de la ville.");

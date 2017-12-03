@@ -16,13 +16,26 @@ public abstract class Lieux {
     String name;
     ArrayList<Humain> people = new ArrayList();
 
-    public Lieux(String name, ArrayList<Humain> people) {
+      /**
+       *
+       * @param name
+       * @param people
+       */
+      public Lieux(String name, ArrayList<Humain> people) {
         this.name = name;
         this.people = people;
     }
 
-    public abstract void entrer(Humain perso);
+      /**
+       *
+       * @param perso
+       */
+      public abstract void entrer(Humain perso);
 
-    public abstract void exit(Humain perso);
+      /**
+       *
+       * @param perso
+       */
+      public abstract void exit(Humain perso);
 
 }

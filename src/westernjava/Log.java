@@ -10,12 +10,26 @@ import java.util.*;
  */
 public class Log {
 
+      /**
+       *
+       */
       protected static String defaultLogFile = "c:\\msglog.txt";
 
+      /**
+       *
+       * @param s
+       * @throws IOException
+       */
       public static void write(String s) throws IOException {
             write(defaultLogFile, s);
       }
 
+      /**
+       *
+       * @param f
+       * @param s
+       * @throws IOException
+       */
       public static void write(String f, String s) throws IOException {
             TimeZone tz = TimeZone.getTimeZone("EST"); // or PST, MID, etc ...
             Date now = new Date();

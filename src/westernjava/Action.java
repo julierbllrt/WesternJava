@@ -13,9 +13,20 @@ public class Action {
       Random random = new Random();
       Perso perso = new Perso();
 
+      /**
+       *
+       */
       public Action() {
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public Lady lady(int choice, Lady obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
             try {
@@ -128,6 +139,14 @@ public class Action {
             }
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public ThugLady thuglady(int choice, ThugLady obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
             try {
@@ -258,6 +277,14 @@ public class Action {
 
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public Cowboy cowboy(int choice, Cowboy obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
 
@@ -412,6 +439,14 @@ public class Action {
 
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public Sherif sherif(int choice, Sherif obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
             try {
@@ -521,6 +556,14 @@ public class Action {
             }
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public BadCop badcop(int choice, BadCop obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
             try {
@@ -667,6 +710,14 @@ public class Action {
 
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public Thug thug(int choice, Thug obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
             try {
@@ -789,6 +840,14 @@ public class Action {
             }
       }
 
+      /**
+       *
+       * @param choice
+       * @param obj
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public Indian indian(int choice, Indian obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
 
@@ -877,6 +936,14 @@ public class Action {
 
       }
 
+      /**
+       *
+       * @param choice
+       * @param man
+       * @param list_lieux
+       * @param list
+       * @return
+       */
       public Humain humain(int choice, Humain man, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
 

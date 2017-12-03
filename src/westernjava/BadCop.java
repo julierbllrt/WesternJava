@@ -16,6 +16,19 @@ public class BadCop extends Cowboy implements OutTheLaw {
       String look;
       Boolean isInJail;
 
+      /**
+       *
+       * @param nbKidnappedLady
+       * @param reward
+       * @param look
+       * @param isInJail
+       * @param popularity
+       * @param adjective
+       * @param money
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
       public BadCop(int nbKidnappedLady, int reward, String look, Boolean isInJail,
                int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
             super(popularity, adjective, money, name, favoriteDrink, lieu);
@@ -25,6 +38,11 @@ public class BadCop extends Cowboy implements OutTheLaw {
             this.isInJail = isInJail;
       }
 
+      /**
+       *
+       * @param boy
+       * @param lieux
+       */
       @Override
       public void getInJail(Sherif boy, Lieux[] lieux) {
             talk("Merde! Je me vengerais " + boy.name + "!");
@@ -33,11 +51,19 @@ public class BadCop extends Cowboy implements OutTheLaw {
             boy.money += reward;
       }
 
+      /**
+       *
+       * @param money
+       */
       @Override
       public void addReward(int money) {
             reward += money;
       }
 
+      /**
+       *
+       * @param girl
+       */
       @Override
       public void kidnappedLady(Lady girl) {
             if (!girl.isKidnapped) {
@@ -47,6 +73,9 @@ public class BadCop extends Cowboy implements OutTheLaw {
             }
       }
 
+      /**
+       *
+       */
       @Override
       public void escape() {
             if (this.isInJail) {

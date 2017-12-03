@@ -15,7 +15,17 @@ public class Thug extends Humain implements OutTheLaw{
     String look;
     boolean isInJail;
 
-    public Thug(int nbKidnappedLady, int reward, String look, boolean isInJail, String name, String favoriteDrink, Lieux lieu) {
+      /**
+       *
+       * @param nbKidnappedLady
+       * @param reward
+       * @param look
+       * @param isInJail
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
+      public Thug(int nbKidnappedLady, int reward, String look, boolean isInJail, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
         this.nbKidnappedLady = nbKidnappedLady;
         this.reward = reward;
@@ -23,8 +33,10 @@ public class Thug extends Humain implements OutTheLaw{
         this.isInJail = isInJail;
     }
    
-    
-    @Override
+      /**
+       *
+       */
+      @Override
     public void escape(){
         if(this.isInJail){
             isInJail = false;
@@ -34,13 +46,20 @@ public class Thug extends Humain implements OutTheLaw{
         }
     }
     
-    @Override
+      /**
+       *
+       */
+      @Override
     public void introduceYourself(){
         action(this.name+" se présente.");
         talk("J'suis "+ name +". Je vais mettre cette ville à feu et à sang.");
     }
 
-    @Override
+      /**
+       *
+       * @param girl
+       */
+      @Override
     public void kidnappedLady(Lady girl) {
         if(!girl.isKidnapped){
             action(this.name+" kidnappe "+girl.name);
@@ -50,7 +69,12 @@ public class Thug extends Humain implements OutTheLaw{
         }        
     }
 
-    @Override
+      /**
+       *
+       * @param boy
+       * @param lieux
+       */
+      @Override
     public void getInJail(Sherif boy, Lieux[] lieux){
         action(boy.name+" a mis "+this.name+" en prison");
         talk("Merde! Je me vengerais "+boy.name+"!");
@@ -58,7 +82,12 @@ public class Thug extends Humain implements OutTheLaw{
         this.goTo(lieux[1]);
         boy.money+=reward;
     }
-    @Override
+
+      /**
+       *
+       * @param money
+       */
+      @Override
     public void addReward(int money) {
         reward+=money;
         action("money="+reward);

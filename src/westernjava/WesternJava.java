@@ -7,11 +7,7 @@ package westernjava;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -22,6 +18,10 @@ public class WesternJava {
       static ArrayList<ArrayList<ArrayList<Humain>>> list = new ArrayList();
       static Choice choice = new Choice();
 
+      /**
+       *
+       * @param list
+       */
       public static void printList(ArrayList<ArrayList<Humain>> list) {
 
             for (int n = 0; n < list.size(); n++) {
@@ -31,6 +31,10 @@ public class WesternJava {
             }
       }
 
+      /**
+       *
+       * @param c
+       */
       public static void displayPerso(int c) {
             for (int n = 0; n < list.get(c).size(); n++) {
                   for (int i = 0; i < list.get(c).get(n).size(); i++) {
@@ -72,8 +76,6 @@ public class WesternJava {
        */
       public static void main(String[] args) throws IOException {
 
-            //Lady louise = new Lady(false, "noire", "Louise", "vodka", saloon);
-            //FileWriter out = new FileWriter("C:\\java\\hello");
             //Creation lieux
             ArrayList<Humain> bar_people = new ArrayList();
             ArrayList<Humain> street_people = new ArrayList();
@@ -89,6 +91,7 @@ public class WesternJava {
 
             saloon.opening();
 
+            //Creation liste personnage
             ArrayList<ArrayList<Humain>> ladylist = new ArrayList();
             ArrayList<Humain> simpleladylist = new ArrayList();
             ladylist.add(simpleladylist);
@@ -115,32 +118,28 @@ public class WesternJava {
             ArrayList<Humain> simplebarmanlist = new ArrayList();
             barmanlist.add(simplebarmanlist);
 
-          
-
-           
-           
-
-            
-
-           
-           
-
-            
-            
-
+            //Creation personnage par lecture fichier
             String fileName = "initialisation.txt";
+            FileReader inp = new FileReader(fileName);
+            int nb_line = 0;int r;
+            while ((r = inp.read()) != 47) {
+                  if (r==59){
+                     nb_line++;   
+                  }
+                  
+            }
+           
+            inp.close();
             FileReader in = new FileReader(fileName);
-
-            List<String> lines = Files.readAllLines(Paths.get(fileName), Charset.defaultCharset());
-            int result = lines.size() + 1;
-            System.out.println("nombre de ligne" + result);
+          
+            //System.out.println("nombre de ligne" + result);
             int i, c, n;
 
             String type = "";
             String para = "";
             ArrayList<String> parametre = new ArrayList();
 
-            for (int m = 0; m < 8; m++) {
+            for (int m = 0; m < nb_line; m++) {
 
                   while ((c = in.read()) != 44) {
 
@@ -148,7 +147,7 @@ public class WesternJava {
                         type = type + t;
                   }
 
-                  System.out.println("\ntype " + type);
+                  //System.out.println("\ntype " + type);
                   switch (type) {
                         case "Lady":
                               parametre.clear();
@@ -159,7 +158,7 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
 
                               boolean bo = parametre.get(0).equals("true");
@@ -184,7 +183,7 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
 
                               if (parametre.get(6).equalsIgnoreCase(lieux[0].name)) {
@@ -192,9 +191,9 @@ public class WesternJava {
                               } else {
                                     li = street;
                               }
-                              sheriflist.add(new Sherif(Integer.parseInt(parametre.get(0)), 
-                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
-                                       Integer.parseInt(parametre.get(3)), parametre.get(4), 
+                              sheriflist.add(new Sherif(Integer.parseInt(parametre.get(0)),
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2),
+                                       Integer.parseInt(parametre.get(3)), parametre.get(4),
                                        parametre.get(5), li));
                               type = "";
                               break;
@@ -209,20 +208,20 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
-                              
+
                               bo = parametre.get(3).equals("true");
                               if (parametre.get(6).equalsIgnoreCase(lieux[0].name)) {
                                     li = lieux[0];
                               } else {
                                     li = street;
                               }
-                              simplethuglist.add(new Thug(Integer.parseInt(parametre.get(0)), 
-                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
+                              simplethuglist.add(new Thug(Integer.parseInt(parametre.get(0)),
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2),
                                        bo, parametre.get(4), parametre.get(5), li));
                               type = "";
-                              break;   
+                              break;
                         case "ThugLady":
                               parametre.clear();
                               for (i = 0; i < 9; i++) {
@@ -233,9 +232,9 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
-                              
+
                               bo = parametre.get(3).equals("true");
                               boolean bo2 = parametre.get(4).equals("true");
                               if (parametre.get(8).equalsIgnoreCase(lieux[0].name)) {
@@ -243,11 +242,11 @@ public class WesternJava {
                               } else {
                                     li = street;
                               }
-                              thugladylist.add(new ThugLady(Integer.parseInt(parametre.get(0)), 
-                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
-                                       bo,bo2, parametre.get(5), parametre.get(6),parametre.get(7), li));
+                              thugladylist.add(new ThugLady(Integer.parseInt(parametre.get(0)),
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2),
+                                       bo, bo2, parametre.get(5), parametre.get(6), parametre.get(7), li));
                               type = "";
-                              break;  
+                              break;
                         case "Cowboy":
                               parametre.clear();
                               for (i = 0; i < 6; i++) {
@@ -259,7 +258,7 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
 
                               if (parametre.get(5).equalsIgnoreCase(lieux[0].name)) {
@@ -267,7 +266,7 @@ public class WesternJava {
                               } else {
                                     li = street;
                               }
-                              simplecowboylist.add(new Cowboy(Integer.parseInt(parametre.get(0)), 
+                              simplecowboylist.add(new Cowboy(Integer.parseInt(parametre.get(0)),
                                        parametre.get(1), Integer.parseInt(parametre.get(2)),
                                        parametre.get(3), parametre.get(4), li));
                               type = "";
@@ -283,7 +282,7 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
 
                               if (parametre.get(4).equalsIgnoreCase(lieux[0].name)) {
@@ -291,7 +290,7 @@ public class WesternJava {
                               } else {
                                     li = street;
                               }
-                              simpleindianlist.add(new  Indian(Integer.parseInt(parametre.get(0)), 
+                              simpleindianlist.add(new Indian(Integer.parseInt(parametre.get(0)),
                                        parametre.get(1), parametre.get(2),
                                        parametre.get(3), li));
                               type = "";
@@ -306,27 +305,25 @@ public class WesternJava {
                                     }
                                     parametre.add(para);
                                     para = "";
-                                    System.out.println(parametre.get(i));
+                                    //System.out.println(parametre.get(i));
                               }
-                              
+
                               bo = parametre.get(3).equals("true");
-                              
+
                               if (parametre.get(9).equalsIgnoreCase(lieux[0].name)) {
                                     li = lieux[0];
                               } else {
                                     li = street;
                               }
-                              badcoplist.add(new BadCop(Integer.parseInt(parametre.get(0)), 
-                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
-                                       bo,Integer.parseInt(parametre.get(4)), parametre.get(5), 
-                                       Integer.parseInt(parametre.get(6)),parametre.get(7),
+                              badcoplist.add(new BadCop(Integer.parseInt(parametre.get(0)),
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2),
+                                       bo, Integer.parseInt(parametre.get(4)), parametre.get(5),
+                                       Integer.parseInt(parametre.get(6)), parametre.get(7),
                                        parametre.get(8), li));
                               type = "";
-                              break;  
-                             
+                              break;
+
                   }
-                  
-                  
 
             }
 
@@ -336,7 +333,7 @@ public class WesternJava {
             list.add(indianlist);
             list.add(barmanlist);
 
-            //choice.mode(list, lieux);
+            choice.mode(list, lieux);
       }
 
 }

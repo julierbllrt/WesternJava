@@ -11,21 +11,38 @@ package westernjava;
  */
 public class Barman extends Humain {
 
-    public Barman(String name, String favoriteDrink, Lieux lieu) {
+      /**
+       *
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
+      public Barman(String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
     }
 
-    public void serve(Humain someone) {
+      /**
+       *
+       * @param someone
+       */
+      public void serve(Humain someone) {
         action(this.name + " sert un verre à " + someone.name);
         talk("Tiens " + someone.name + " ton verre.");
     }
 
-    @Override
+      /**
+       *
+       * @param blablabla
+       */
+      @Override
     public void talk(String blablabla) {
         System.out.println("Barman " + name + ": " + blablabla);
     }
 
-    @Override
+      /**
+       *
+       */
+      @Override
     public void introduceYourself() {
         action(this.name + " se présente.");
         talk("Hey, si tu veux un verre demande " + name + "!");

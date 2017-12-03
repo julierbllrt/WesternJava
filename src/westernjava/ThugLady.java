@@ -15,7 +15,19 @@ public class ThugLady extends Lady implements OutTheLaw{
     String look;
     Boolean isInJail;
 
-    public ThugLady(int nbKidnappedLady, int reward, String look, Boolean isInJail, 
+      /**
+       *
+       * @param nbKidnappedLady
+       * @param reward
+       * @param look
+       * @param isInJail
+       * @param isKidnapped
+       * @param pantieColor
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
+      public ThugLady(int nbKidnappedLady, int reward, String look, Boolean isInJail, 
             boolean isKidnapped, String pantieColor, String name, String favoriteDrink, Lieux lieu) {
         super(isKidnapped, pantieColor, name, favoriteDrink, lieu);
         this.nbKidnappedLady = nbKidnappedLady;
@@ -24,14 +36,21 @@ public class ThugLady extends Lady implements OutTheLaw{
         this.isInJail = isInJail;
     }
 
-    @Override
+      /**
+       *
+       * @param girl
+       */
+      @Override
     public void kidnappedLady(Lady girl) {
         nbKidnappedLady++;
         talk("Enfin, je t'attrape "+girl.name);
         girl.getKidnapped(this);
     }
     
-    @Override
+      /**
+       *
+       */
+      @Override
     public void escape(){
         if(this.isInJail){
             isInJail = false;
@@ -41,7 +60,12 @@ public class ThugLady extends Lady implements OutTheLaw{
         }
     }
 
-    @Override
+      /**
+       *
+       * @param boy
+       * @param lieux
+       */
+      @Override
     public void getInJail(Sherif boy,Lieux[] lieux) {
         talk("Merde! Je me vengerais "+boy.name+"!");
         isInJail=true;
@@ -49,8 +73,11 @@ public class ThugLady extends Lady implements OutTheLaw{
         boy.money+=reward;
     }
 
-
-    @Override
+      /**
+       *
+       * @param money
+       */
+      @Override
     public void addReward(int money){
         reward+=money;
     }

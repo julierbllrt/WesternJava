@@ -19,7 +19,13 @@ public class Choice {
     Perso perso = new Perso();
     Action action = new Action();
 
-    public Humain humain(int choice,
+      /**
+       *
+       * @param choice
+       * @param list
+       * @return
+       */
+      public Humain humain(int choice,
             ArrayList<ArrayList<ArrayList<Humain>>> list) {
 
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +53,14 @@ public class Choice {
 
     }
 
-    public Humain perso(int choice, int y,
+      /**
+       *
+       * @param choice
+       * @param y
+       * @param list
+       * @return
+       */
+      public Humain perso(int choice, int y,
             ArrayList<ArrayList<ArrayList<Humain>>> list) {
 
         Humain personnage;
@@ -70,7 +83,12 @@ public class Choice {
 
     }
 
-    public void mode(ArrayList<ArrayList<ArrayList<Humain>>> list, Lieux[] list_lieux) {
+      /**
+       *
+       * @param list
+       * @param list_lieux
+       */
+      public void mode(ArrayList<ArrayList<ArrayList<Humain>>> list, Lieux[] list_lieux) {
         Humain personnage;
         Scanner scanner = new Scanner(System.in);
         String input;

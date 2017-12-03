@@ -11,12 +11,28 @@ package westernjava;
  */
 public interface OutTheLaw {
 
-    void kidnappedLady(Lady girl);
+      /**
+       *
+       * @param girl
+       */
+      void kidnappedLady(Lady girl);
 
-    void getInJail(Sherif boy,Lieux[] lieux);
+      /**
+       *
+       * @param boy
+       * @param lieux
+       */
+      void getInJail(Sherif boy,Lieux[] lieux);
 
-    void addReward(int money);
+      /**
+       *
+       * @param money
+       */
+      void addReward(int money);
 
-    void escape();
+      /**
+       *
+       */
+      void escape();
 
 }

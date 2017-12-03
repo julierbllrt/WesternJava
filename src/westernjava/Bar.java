@@ -13,30 +13,53 @@ public class Bar extends Lieux {
     Barman barman;
     Jail jail;
 
-    public Bar(Boolean open, MainStreet out, Barman barman, String name, ArrayList people) {
+      /**
+       *
+       * @param open
+       * @param out
+       * @param barman
+       * @param name
+       * @param people
+       */
+      public Bar(Boolean open, MainStreet out, Barman barman, String name, ArrayList people) {
         super(name, people);
         this.open = open;
         this.out = out;
         this.barman = barman;
     }
 
-    public Barman getBarman() {
+      /**
+       *
+       * @return
+       */
+      public Barman getBarman() {
         return barman;
     }
 
-    public void opening() {
+      /**
+       *
+       */
+      public void opening() {
         barman.lieu.exit(barman);
         open = true;
         entrer(barman);
     }
 
-    @Override
+      /**
+       *
+       * @param perso
+       */
+      @Override
     public void exit(Humain perso) {
         people.remove(perso);
         out.entrer(perso);
     }
 
-    @Override
+      /**
+       *
+       * @param perso
+       */
+      @Override
     public void entrer(Humain perso) {
         perso.lieu = this;
         people.add(perso);

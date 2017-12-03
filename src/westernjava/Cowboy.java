@@ -15,6 +15,15 @@ public class Cowboy extends Humain {
       String adjective;
       int money;
 
+      /**
+       *
+       * @param popularity
+       * @param adjective
+       * @param money
+       * @param name
+       * @param favoriteDrink
+       * @param lieu
+       */
       public Cowboy(int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
             super(name, favoriteDrink, lieu);
             this.popularity = popularity;
@@ -22,6 +31,12 @@ public class Cowboy extends Humain {
             this.money = money;
       }
 
+      /**
+       *
+       * @param badboy
+       * @param cop
+       * @param lieux
+       */
       public void shoot(Thug badboy, Sherif cop, Lieux[] lieux) {
             action(this.name + " tir sur " + badboy.name);
             action("Bang!!!");
@@ -30,6 +45,12 @@ public class Cowboy extends Humain {
             getReward(badboy);
       }
 
+      /**
+       *
+       * @param badboy
+       * @param cop
+       * @param lieux
+       */
       public void shoot(BadCop badboy, Sherif cop, Lieux[] lieux) {
             action(this.name + " tir sur " + badboy.name);
             action("Bang!!!");
@@ -38,6 +59,10 @@ public class Cowboy extends Humain {
             getReward(badboy);
       }
 
+      /**
+       *
+       * @param girl
+       */
       public void freeTheLady(Lady girl) {
             if (girl.isKidnapped) {
                   action(this.name + " libère " + girl.name);
@@ -47,18 +72,29 @@ public class Cowboy extends Humain {
 
       }
 
+      /**
+       *
+       * @param badboy
+       */
       public void getReward(Thug badboy) {
             action(this.name + " obtient la récompence sur la tête de " + badboy.name);
             money += badboy.reward;
             badboy.reward = 0;
       }
 
+      /**
+       *
+       * @param badboy
+       */
       public void getReward(BadCop badboy) {
             action(this.name + " obtient la récompence sur la tête de " + badboy.name);
             money += badboy.reward;
             badboy.reward = 0;
       }
 
+      /**
+       *
+       */
       @Override
       public void introduceYourself() {
             action(this.name + " se présente.");
