@@ -10,6 +10,7 @@ package westernjava;
  * @author ISEN
  */
 public class Cowboy extends Humain {
+
     int popularity;
     String adjective;
     int money;
@@ -20,34 +21,34 @@ public class Cowboy extends Humain {
         this.adjective = adjective;
         this.money = money;
     }
-    
-    public void shoot(Thug badboy,Sherif cop){
-        action(this.name+" tir sur "+badboy.name);
+
+    public void shoot(Thug badboy, Sherif cop) {
+        action(this.name + " tir sur " + badboy.name);
         action("Bang!!!");
-        talk("Enfin je t'ai eu "+ badboy.name+".");
+        talk("Enfin je t'ai eu " + badboy.name + ".");
         cop.catchAThug(badboy);
         getReward(badboy);
     }
-    
-    public void freeTheLady(Lady girl){
-        if(!girl.isKidnapped){
-            action(this.name+" libère "+girl.name);
-            talk("Je vous libère "+girl.name+"!!");
-            girl.getFree(this);  
+
+    public void freeTheLady(Lady girl) {
+        if (!girl.isKidnapped) {
+            action(this.name + " libère " + girl.name);
+            talk("Je vous libère " + girl.name + "!!");
+            girl.getFree(this);
         }
-              
+
     }
-    
-    public void getReward(Thug badboy){
-        action(this.name+" obtient la récompence sur la tête de "+badboy.name);
-        money+=badboy.reward;
-        badboy.reward=0;
+
+    public void getReward(Thug badboy) {
+        action(this.name + " obtient la récompence sur la tête de " + badboy.name);
+        money += badboy.reward;
+        badboy.reward = 0;
     }
-    
+
     @Override
-    public void introduceYourself(){
-        action(this.name+" se présente.");
-        talk("Salut, je m'appelle "+name+". Je suis le nouveau cowboy.");
+    public void introduceYourself() {
+        action(this.name + " se présente.");
+        talk("Salut, je m'appelle " + name + ". Je suis le nouveau cowboy.");
     }
-    
+
 }

@@ -10,10 +10,13 @@ package westernjava;
  * @author ISEN
  */
 public interface OutTheLaw {
-    
+
     void kidnappedLady(Lady girl);
+
     void getInJail(Sherif boy);
+
     void addReward(int money);
+
     void escape();
-    
+
 }

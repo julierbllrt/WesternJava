@@ -9,26 +9,25 @@ package westernjava;
  *
  * @author ISEN
  */
-public class Barman extends Humain{
-    
+public class Barman extends Humain {
+
     public Barman(String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
     }
 
-    
-    public void serve(Humain someone){
-        action(this.name+" sert un verre à "+someone.name);
-        talk("Tiens "+someone.name+" ton verre.");
+    public void serve(Humain someone) {
+        action(this.name + " sert un verre à " + someone.name);
+        talk("Tiens " + someone.name + " ton verre.");
     }
-    
+
     @Override
-    public void talk(String blablabla){
-        System.out.println("Barman "+name+": "+blablabla);
+    public void talk(String blablabla) {
+        System.out.println("Barman " + name + ": " + blablabla);
     }
-    
+
     @Override
-    public void introduceYourself(){
-        action(this.name+" se présente.");
-        talk("Hey, si tu veux un verre demande "+name+"!");
+    public void introduceYourself() {
+        action(this.name + " se présente.");
+        talk("Hey, si tu veux un verre demande " + name + "!");
     }
 }

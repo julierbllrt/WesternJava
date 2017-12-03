@@ -11,11 +11,11 @@ import java.util.Random;
  *
  * @author ISEN
  */
-public class Lady extends Humain{
+public class Lady extends Humain {
+
     boolean isKidnapped;
     String pantieColor;
-    Random random =new Random();
-    
+    Random random = new Random();
 
     public Lady(boolean isKidnapped, String pantieColor, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
@@ -23,42 +23,42 @@ public class Lady extends Humain{
         this.pantieColor = pantieColor;
     }
 
-    public void getKidnapped(Thug badboy){
-        action(badboy.name+" a kidnappé "+this.name);
-        talk("Lâche-moi "+badboy.name+"!");
+    public void getKidnapped(Thug badboy) {
+        action(badboy.name + " a kidnappé " + this.name);
+        talk("Lâche-moi " + badboy.name + "!");
         isKidnapped = true;
     }
-    
-    public void getKidnapped(ThugLady badgirl){
-        action(badgirl.name+" a kidnappé "+this.name);
-        talk("Lâche-moi "+badgirl.name+"!");
+
+    public void getKidnapped(ThugLady badgirl) {
+        action(badgirl.name + " a kidnappé " + this.name);
+        talk("Lâche-moi " + badgirl.name + "!");
         isKidnapped = true;
     }
-    
-    public void getKidnapped(BadCop badgirl){
-        action(badgirl.name+" a kidnappé "+this.name);
-        talk("Mais "+badgirl.name+" vous êtes un cowbow!!");
+
+    public void getKidnapped(BadCop badgirl) {
+        action(badgirl.name + " a kidnappé " + this.name);
+        talk("Mais " + badgirl.name + " vous êtes un cowbow!!");
         isKidnapped = true;
     }
-    
-    public void getFree(Cowboy hero){
-        action(hero.name+" a sauvé "+this.name);
-        talk("Oooh merci "+hero.name+"!");
+
+    public void getFree(Cowboy hero) {
+        action(hero.name + " a sauvé " + this.name);
+        talk("Oooh merci " + hero.name + "!");
         isKidnapped = false;
     }
-    
-    public void getChanged(){
-        String[] couleurTable={"rose", "noire","bleu","blanche"};
-        int chiffre=random.nextInt(couleurTable.length);
+
+    public void getChanged() {
+        String[] couleurTable = {"rose", "noire", "bleu", "blanche"};
+        int chiffre = random.nextInt(couleurTable.length);
         pantieColor = couleurTable[chiffre];
-        action(this.name+" change de culotte");
-        talk("Trop belle ma nouvelle culotte "+this.pantieColor+".");   
+        action(this.name + " change de culotte");
+        talk("Trop belle ma nouvelle culotte " + this.pantieColor + ".");
     }
-    
+
     @Override
-    public void introduceYourself(){
-        action(this.name+" se présente.");
-        talk("Salut, je m'appelle "+name+". Je vais séduire toute la ville.");
+    public void introduceYourself() {
+        action(this.name + " se présente.");
+        talk("Salut, je m'appelle " + name + ". Je vais séduire toute la ville.");
     }
-    
+
 }

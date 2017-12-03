@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package westernjava;
 
 import java.util.ArrayList;
@@ -11,10 +6,12 @@ import java.util.ArrayList;
  *
  * @author ISEN
  */
-public class Bar extends Lieux{
+public class Bar extends Lieux {
+
     Boolean open;
     MainStreet out;
     Barman barman;
+    Jail jail;
 
     public Bar(Boolean open, MainStreet out, Barman barman, String name, ArrayList people) {
         super(name, people);
@@ -22,28 +19,33 @@ public class Bar extends Lieux{
         this.out = out;
         this.barman = barman;
     }
-    
-    public Barman getBarman(){
+
+    public Barman getBarman() {
         return barman;
     }
-    
-    
-    public void opening(){
+
+    public void opening() {
         barman.lieu.exit(barman);
-        open=true;
+        open = true;
         entrer(barman);
     }
-    
+
     @Override
-    public void exit(Humain perso){
+    public void exit(Humain perso) {
         people.remove(perso);
         out.entrer(perso);
     }
-    
+
     @Override
-    public void entrer(Humain perso){
+    public void entrer(Humain perso) {
         perso.lieu = this;
         people.add(perso);
     }
-    
+
+    @Override
+    public void goToJail(Humain perso) {
+        people.remove(perso);
+        jail.entrer(perso);
+    }
+
 }

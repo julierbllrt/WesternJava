@@ -9,10 +9,10 @@ package westernjava;
  *
  * @author ISEN
  */
-public class Indian extends Humain{
+public class Indian extends Humain {
+
     int nbFeather;
     String totem;
-    
 
     public Indian(int nbFeather, String totem, String name, String favoriteDrink, Lieux lieu) {
         super(name, favoriteDrink, lieu);
@@ -21,14 +21,14 @@ public class Indian extends Humain{
     }
 
     @Override
-    public void talk (String blablabla){
-        System.out.println("L'indien "+name+": "+blablabla);
+    public void talk(String blablabla) {
+        System.out.println("L'indien " + name + ": " + blablabla);
     }
-    
+
     @Override
-    public void introduceYourself(){
-        action(this.name+" se présente.");
-        talk("Bonjour visage pâle, mon nom est "+name+" "+totem+". Je fais partie de la tribu à la sortie de la ville.");
+    public void introduceYourself() {
+        action(this.name + " se présente.");
+        talk("Bonjour visage pâle, mon nom est " + name + " " + totem + ". Je fais partie de la tribu à la sortie de la ville.");
     }
-    
+
 }

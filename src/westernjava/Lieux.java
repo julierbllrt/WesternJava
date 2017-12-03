@@ -12,16 +12,19 @@ import java.util.ArrayList;
  * @author ISEN
  */
 public abstract class Lieux {
+
     String name;
     ArrayList<Humain> people = new ArrayList();
-    
 
     public Lieux(String name, ArrayList<Humain> people) {
         this.name = name;
         this.people = people;
     }
-    
+
     public abstract void entrer(Humain perso);
+
     public abstract void exit(Humain perso);
-    
+
+    public abstract void goToJail(Humain perso);
+
 }

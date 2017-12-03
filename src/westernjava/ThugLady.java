@@ -35,6 +35,7 @@ public class ThugLady extends Lady implements OutTheLaw{
     public void escape(){
         if(this.isInJail){
             isInJail = false;
+            this.goOut();
             action(this.name+" s'échappe");
             talk("Enfin!");
         }
@@ -44,6 +45,7 @@ public class ThugLady extends Lady implements OutTheLaw{
     public void getInJail(Sherif boy) {
         talk("Merde! Je me vengerais "+boy.name+"!");
         isInJail=true;
+        this.lieu.goToJail(this);
         boy.money+=reward;
     }
 

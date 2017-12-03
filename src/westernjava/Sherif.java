@@ -9,41 +9,42 @@ package westernjava;
  *
  * @author ISEN
  */
-public class Sherif extends Cowboy{
+public class Sherif extends Cowboy {
+
     int nbCatchedThug;
 
     public Sherif(int nbCatchedThug, int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
         super(popularity, adjective, money, name, favoriteDrink, lieu);
         this.nbCatchedThug = nbCatchedThug;
     }
-    
-    public void catchAThug(Thug badboy){
-        action(this.name+" capture "+badboy.name);
-        talk("Enfin je t'attrape "+badboy.name+"!");
+
+    public void catchAThug(Thug badboy) {
+        action(this.name + " capture " + badboy.name);
+        talk("Enfin je t'attrape " + badboy.name + "!");
         badboy.getInJail(this);
     }
-    
-    public void catchAThug(ThugLady badgirl){
-        action(this.name+" capture "+badgirl.name);
-        talk("Je te pensais mieux que ça "+badgirl.name+"...");
+
+    public void catchAThug(ThugLady badgirl) {
+        action(this.name + " capture " + badgirl.name);
+        talk("Je te pensais mieux que ça " + badgirl.name + "...");
         badgirl.getInJail(this);
     }
-    
-    public void catchAThug(BadCop badcop){
-        action(this.name+" capture "+badcop.name);
-        talk("Je te pensais mieux que ça "+badcop.name+"...");
+
+    public void catchAThug(BadCop badcop) {
+        action(this.name + " capture " + badcop.name);
+        talk("Je te pensais mieux que ça " + badcop.name + "...");
         badcop.getInJail(this);
     }
-    
-    public void searchAThug(Thug badboy,int money){
-        action(this.name+" met une récompence sur le tête de "+badboy.name);
+
+    public void searchAThug(Thug badboy, int money) {
+        action(this.name + " met une récompence sur le tête de " + badboy.name);
         badboy.addReward(money);
-        talk("Oyé oyé, "+badboy.name+" est recherché pour "+badboy.reward+" dollars!");
+        talk("Oyé oyé, " + badboy.name + " est recherché pour " + badboy.reward + " dollars!");
     }
-    
+
     @Override
-    public void introduceYourself(){
-        action(this.name+" se présente.");
-        talk("Hey, je suis le nouveau shérif en ville! "+name+" à votre service!");
+    public void introduceYourself() {
+        action(this.name + " se présente.");
+        talk("Hey, je suis le nouveau shérif en ville! " + name + " à votre service!");
     }
 }

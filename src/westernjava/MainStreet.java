@@ -12,12 +12,15 @@ import java.util.ArrayList;
  * @author ISEN
  */
 public class MainStreet extends Lieux{
+    Jail jail;
 
-
-    public MainStreet(String name, ArrayList people) {
+    public MainStreet(Jail jail, String name, ArrayList<Humain> people) {
         super(name, people);
+        this.jail = jail;
     }
     
+    
+
     @Override
     public void exit(Humain perso){
         people.remove(perso);
@@ -27,6 +30,12 @@ public class MainStreet extends Lieux{
     public void entrer(Humain perso){
         perso.lieu=this;
         people.add(perso);
+    }
+
+    @Override
+    public void goToJail(Humain perso) {
+        people.remove(perso);
+        jail.entrer(perso);
     }
     
 }

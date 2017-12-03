@@ -28,6 +28,7 @@ public class Thug extends Humain implements OutTheLaw{
     public void escape(){
         if(this.isInJail){
             isInJail = false;
+            this.goOut();
             action(this.name+" s'échappe");
             talk("Je suis liiibre!!!");
         }
@@ -54,6 +55,7 @@ public class Thug extends Humain implements OutTheLaw{
         action(boy.name+" a mis "+this.name+" en prison");
         talk("Merde! Je me vengerais "+boy.name+"!");
         isInJail=true;
+        this.lieu.goToJail(this);
         boy.money+=reward;
     }
     @Override
