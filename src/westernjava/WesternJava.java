@@ -126,7 +126,7 @@ public class WesternJava {
            
 
             
-            badcoplist.add(eden);
+            
 
             String fileName = "initialisation.txt";
             FileReader in = new FileReader(fileName);
@@ -140,7 +140,7 @@ public class WesternJava {
             String para = "";
             ArrayList<String> parametre = new ArrayList();
 
-            for (int m = 0; m < 7; m++) {
+            for (int m = 0; m < 8; m++) {
 
                   while ((c = in.read()) != 44) {
 
@@ -311,14 +311,16 @@ public class WesternJava {
                               
                               bo = parametre.get(3).equals("true");
                               
-                              if (parametre.get(8).equalsIgnoreCase(lieux[0].name)) {
+                              if (parametre.get(9).equalsIgnoreCase(lieux[0].name)) {
                                     li = lieux[0];
                               } else {
                                     li = street;
                               }
-                              thugladylist.add(new ThugLady(Integer.parseInt(parametre.get(0)), 
+                              badcoplist.add(new BadCop(Integer.parseInt(parametre.get(0)), 
                                        Integer.parseInt(parametre.get(1)), parametre.get(2), 
-                                       bo,bo2, parametre.get(5), parametre.get(6),parametre.get(7), li));
+                                       bo,Integer.parseInt(parametre.get(4)), parametre.get(5), 
+                                       Integer.parseInt(parametre.get(6)),parametre.get(7),
+                                       parametre.get(8), li));
                               type = "";
                               break;  
                              
