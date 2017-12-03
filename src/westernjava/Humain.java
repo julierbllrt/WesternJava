@@ -66,7 +66,7 @@ public class Humain {
         Bar bar = (Bar) this.lieu;
         Barman barman = bar.getBarman();
         action(name + " a commander un verre");
-        talk("Hey " + barman.name + " donne moi un " + favoriteDrink);
+        talk("Hey " + barman.name + " donne moi un verre de " + favoriteDrink);
         barman.serve(this);
 
     }

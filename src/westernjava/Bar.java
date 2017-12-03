@@ -42,10 +42,5 @@ public class Bar extends Lieux {
         people.add(perso);
     }
 
-    @Override
-    public void goToJail(Humain perso) {
-        people.remove(perso);
-        jail.entrer(perso);
-    }
-
+   
 }

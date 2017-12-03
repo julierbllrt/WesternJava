@@ -18,22 +18,21 @@ public class Sherif extends Cowboy {
         this.nbCatchedThug = nbCatchedThug;
     }
 
-    public void catchAThug(Thug badboy) {
+    public void catchAThug(Thug badboy , Lieux[] lieux) {
         action(this.name + " capture " + badboy.name);
-        talk("Enfin je t'attrape " + badboy.name + "!");
-        badboy.getInJail(this);
+        badboy.getInJail(this,lieux);
     }
 
-    public void catchAThug(ThugLady badgirl) {
+    public void catchAThug(ThugLady badgirl, Lieux[] lieux) {
         action(this.name + " capture " + badgirl.name);
         talk("Je te pensais mieux que ça " + badgirl.name + "...");
-        badgirl.getInJail(this);
+        badgirl.getInJail(this,lieux);
     }
 
-    public void catchAThug(BadCop badcop) {
+    public void catchAThug(BadCop badcop, Lieux[] lieux) {
         action(this.name + " capture " + badcop.name);
         talk("Je te pensais mieux que ça " + badcop.name + "...");
-        badcop.getInJail(this);
+        badcop.getInJail(this,lieux);
     }
 
     public void searchAThug(Thug badboy, int money) {

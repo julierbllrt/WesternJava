@@ -13,7 +13,7 @@ public interface OutTheLaw {
 
     void kidnappedLady(Lady girl);
 
-    void getInJail(Sherif boy);
+    void getInJail(Sherif boy,Lieux[] lieux);
 
     void addReward(int money);
 

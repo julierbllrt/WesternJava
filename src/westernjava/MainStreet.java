@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainStreet extends Lieux{
     Jail jail;
 
-    public MainStreet(Jail jail, String name, ArrayList<Humain> people) {
+    public MainStreet( String name, ArrayList<Humain> people) {
         super(name, people);
         this.jail = jail;
     }
@@ -32,10 +32,6 @@ public class MainStreet extends Lieux{
         people.add(perso);
     }
 
-    @Override
-    public void goToJail(Humain perso) {
-        people.remove(perso);
-        jail.entrer(perso);
-    }
+   
     
 }

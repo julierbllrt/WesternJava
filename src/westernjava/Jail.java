@@ -27,9 +27,5 @@ public class Jail extends Lieux {
         people.add(perso);
     }
 
-    @Override
-    public void goToJail(Humain perso) {
-        System.out.println("Vous êtes déjà en prison...");
-    }
-
+    
 }

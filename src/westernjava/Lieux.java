@@ -25,6 +25,4 @@ public abstract class Lieux {
 
     public abstract void exit(Humain perso);
 
-    public abstract void goToJail(Humain perso);
-
 }
