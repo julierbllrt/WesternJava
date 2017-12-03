@@ -1,2 +1,1 @@
- ArrayList<Humain> bar_people = new ArrayList();
- ArrayList<Humain> street_people = new ArrayList();
+Lady,false,noire,Louise,vodka,street;Lady,3,5,rapide,0,John,whiskey,saloon;

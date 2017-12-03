@@ -1,0 +1,4 @@
+Lady,false,noire,Louise,vodka,street;
+Sherif,3,5,rapide,0,John,whiskey,saloon;
+Thug,0,0,menaçant,false,Nick,rhum,street;
+Lady,false,rose,Marie,rhum,street;

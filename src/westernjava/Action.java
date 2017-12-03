@@ -77,7 +77,6 @@ public class Action {
                                     }
                               } else if (obj.lieu instanceof Jail) {
                                     System.out.println(obj.name + " est en " + obj.lieu.name);
-                                    System.out.println(" tjrs dans lady...");
                                     return obj;
                               }
                               break;
@@ -122,6 +121,9 @@ public class Action {
                   }
             } catch (Exception ex) {
                   System.err.println(ex.getMessage());
+                  System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
+                  System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
       }
@@ -248,6 +250,9 @@ public class Action {
 
             } catch (Exception ex) {
                   System.err.println(ex.getMessage());
+                  System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
+                  System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
 
@@ -399,6 +404,9 @@ public class Action {
                   }
             } catch (Exception ex) {
                   System.err.println(ex.getMessage());
+                  System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
+                  System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
 
@@ -506,6 +514,9 @@ public class Action {
                   }
             } catch (Exception ex) {
                   System.err.println(ex.getMessage());
+                  System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
+                  System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
       }
@@ -648,6 +659,9 @@ public class Action {
                   }
             } catch (Exception ex) {
                   System.err.println(ex.getMessage());
+                  System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
+                  System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
 
@@ -768,6 +782,9 @@ public class Action {
                   }
             } catch (Exception ex) {
                   System.err.println(ex.getMessage());
+                  System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
+                  System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
       }
@@ -854,6 +871,7 @@ public class Action {
                   System.err.println(ex.getMessage());
                   System.out.println("Vous n'avez pas entrer un chiffre correspondant à une action.");
                   System.out.println("Réessayez.");
+                  System.out.println("Si vous voulez quitter taper 'quitter' sinon autre chose");
                   return obj;
             }
 

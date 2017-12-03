@@ -7,7 +7,11 @@ package westernjava;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +20,7 @@ import java.util.ArrayList;
 public class WesternJava {
 
       static ArrayList<ArrayList<ArrayList<Humain>>> list = new ArrayList();
+      static Choice choice = new Choice();
 
       public static void printList(ArrayList<ArrayList<Humain>> list) {
 
@@ -67,14 +72,7 @@ public class WesternJava {
        */
       public static void main(String[] args) throws IOException {
 
-            Choice choice = new Choice();
-
-            FileReader in = new FileReader("initialisation.txt");
-            int c;
-            while ((c = in.read()) != 59) {
-                  System.out.print(c + " ");
-            }
-
+            //Lady louise = new Lady(false, "noire", "Louise", "vodka", saloon);
             //FileWriter out = new FileWriter("C:\\java\\hello");
             //Creation lieux
             ArrayList<Humain> bar_people = new ArrayList();
@@ -117,17 +115,13 @@ public class WesternJava {
             ArrayList<Humain> simplebarmanlist = new ArrayList();
             barmanlist.add(simplebarmanlist);
 
-            Sherif john = new Sherif(3, 5, "rapide", 0, "John", "whiskey", saloon);
-            sheriflist.add(john);
-
             Thug nick = new Thug(0, 0, "menaçant", false, "Nick", "rhum", street);
             simplethuglist.add(nick);
 
-            Lady louise = new Lady(false, "noire", "Louise", "vodka", saloon);
             Lady marie = new Lady(false, "rose", "Marie", "rhum", street);
             ThugLady rose = new ThugLady(1, 100, "terrible", false, false,
                      "violet", "Rose", "eau de prune", street);
-            simpleladylist.add(louise);
+            //simpleladylist.add(louise);
             simpleladylist.add(marie);
             thugladylist.add(rose);
 
@@ -141,13 +135,87 @@ public class WesternJava {
                      "whiskey", saloon);
             badcoplist.add(eden);
 
+            String fileName = "initialisation.txt";
+            FileReader in = new FileReader(fileName);
+
+            List<String> lines = Files.readAllLines(Paths.get(fileName), Charset.defaultCharset());
+            int result = lines.size() + 1;
+            System.out.println("nombre de ligne" + result);
+            int i, c, n;
+
+            String type = "";
+            String para = "";
+            ArrayList<String> parametre = new ArrayList();
+
+            for (int m = 0; m < result; m++) {
+                  
+                  while ((c = in.read()) != 44) {
+                        
+                        String t = Character.toString((char) c);
+                        type = type + t;
+                  }
+
+                  System.out.println("\ntype " + type);
+                  if (type.equals("Lady")) {
+                        parametre.clear();
+                        for (i = 0; i < 5; i++) {
+                              while ((n = in.read()) != 44 && n != 59) {
+                                    String p = Character.toString((char) n);
+                                    para = para + p;
+                              }
+                              parametre.add(para);
+                              para = "";
+                              System.out.println(parametre.get(i));
+                        }
+
+                        boolean bo = parametre.get(0).equals("true");
+                        Lieux li;
+                        if (parametre.get(4).equalsIgnoreCase(lieux[0].name)) {
+                              li = lieux[0];
+                        } else {
+                              li = street;
+                        }
+
+                        simpleladylist.add(new Lady(bo, parametre.get(1), parametre.get(2), parametre.get(3), li));
+                        type = "";
+                  } else if (type.equals("Sherif")) {
+                        parametre.clear();
+                        for (i = 0; i < 7; i++) {
+                              while ((n = in.read()) != 44) {
+                                    String p = Character.toString((char) n);
+                                    para = para + p;
+
+                              }
+                              System.out.println(para);
+                              while ((n = in.read()) != 44 && n != 59) {
+                                    String p = Character.toString((char) n);
+                                    para = para + p;
+                                    System.out.println(para);
+                              }
+                              parametre.add(para);
+                              para = "";
+                              System.out.println(parametre.get(i));
+                        }
+
+                        Lieux li;
+                        if (parametre.get(6).equalsIgnoreCase(lieux[0].name)) {
+                              li = lieux[0];
+                        } else {
+                              li = street;
+                        }
+                        sheriflist.add(new Sherif(Integer.parseInt(parametre.get(0)), Integer.parseInt(parametre.get(1)), parametre.get(2), Integer.parseInt(parametre.get(3)), parametre.get(4), parametre.get(5), li));
+                        type = "";
+                  }
+
+            }
+
             list.add(ladylist);
             list.add(cowboylist);
             list.add(thuglist);
             list.add(indianlist);
             list.add(barmanlist);
 
-            choice.mode(list, lieux);
+            //choice.mode(list, lieux);
       }
 
 }
