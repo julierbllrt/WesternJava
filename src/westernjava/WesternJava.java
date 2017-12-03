@@ -181,16 +181,11 @@ public class WesternJava {
                   } else if (type.equals("Sherif")) {
                         parametre.clear();
                         for (i = 0; i < 7; i++) {
-                              while ((n = in.read()) != 44) {
-                                    String p = Character.toString((char) n);
-                                    para = para + p;
-
-                              }
-                              System.out.println(para);
+                              
                               while ((n = in.read()) != 44 && n != 59) {
                                     String p = Character.toString((char) n);
                                     para = para + p;
-                                    System.out.println(para);
+                                    
                               }
                               parametre.add(para);
                               para = "";
