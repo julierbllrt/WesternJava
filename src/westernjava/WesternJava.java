@@ -115,24 +115,17 @@ public class WesternJava {
             ArrayList<Humain> simplebarmanlist = new ArrayList();
             barmanlist.add(simplebarmanlist);
 
-            Thug nick = new Thug(0, 0, "menaçant", false, "Nick", "rhum", street);
-            simplethuglist.add(nick);
+          
 
-            Lady marie = new Lady(false, "rose", "Marie", "rhum", street);
-            ThugLady rose = new ThugLady(1, 100, "terrible", false, false,
-                     "violet", "Rose", "eau de prune", street);
-            //simpleladylist.add(louise);
-            simpleladylist.add(marie);
-            thugladylist.add(rose);
+           
+           
 
-            Cowboy james = new Cowboy(4, "celèbre", 200, "James", "scotch", saloon);
-            simplecowboylist.add(james);
+            
 
-            Indian gary = new Indian(12, "l'aigle", "Gary", "eau de source", saloon);
-            simpleindianlist.add(gary);
+           
+           
 
-            BadCop eden = new BadCop(0, 0, "chauve", false, 2, "franc", 0, "Eden",
-                     "whiskey", saloon);
+            
             badcoplist.add(eden);
 
             String fileName = "initialisation.txt";
@@ -147,60 +140,191 @@ public class WesternJava {
             String para = "";
             ArrayList<String> parametre = new ArrayList();
 
-            for (int m = 0; m < result; m++) {
-                  
+            for (int m = 0; m < 7; m++) {
+
                   while ((c = in.read()) != 44) {
-                        
+
                         String t = Character.toString((char) c);
                         type = type + t;
                   }
 
                   System.out.println("\ntype " + type);
-                  if (type.equals("Lady")) {
-                        parametre.clear();
-                        for (i = 0; i < 5; i++) {
-                              while ((n = in.read()) != 44 && n != 59) {
-                                    String p = Character.toString((char) n);
-                                    para = para + p;
+                  switch (type) {
+                        case "Lady":
+                              parametre.clear();
+                              for (i = 0; i < 5; i++) {
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
                               }
-                              parametre.add(para);
-                              para = "";
-                              System.out.println(parametre.get(i));
-                        }
 
-                        boolean bo = parametre.get(0).equals("true");
-                        Lieux li;
-                        if (parametre.get(4).equalsIgnoreCase(lieux[0].name)) {
-                              li = lieux[0];
-                        } else {
-                              li = street;
-                        }
+                              boolean bo = parametre.get(0).equals("true");
+                              Lieux li;
+                              if (parametre.get(4).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
+                              }
 
-                        simpleladylist.add(new Lady(bo, parametre.get(1), parametre.get(2), parametre.get(3), li));
-                        type = "";
-                  } else if (type.equals("Sherif")) {
-                        parametre.clear();
-                        for (i = 0; i < 7; i++) {
+                              simpleladylist.add(new Lady(bo, parametre.get(1), parametre.get(2), parametre.get(3), li));
+                              type = "";
+                              break;
+                        case "Sherif":
+                              parametre.clear();
+                              for (i = 0; i < 7; i++) {
+
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
+                              }
+
+                              if (parametre.get(6).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
+                              }
+                              sheriflist.add(new Sherif(Integer.parseInt(parametre.get(0)), 
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
+                                       Integer.parseInt(parametre.get(3)), parametre.get(4), 
+                                       parametre.get(5), li));
+                              type = "";
+                              break;
+                        case "Thug":
+                              parametre.clear();
+                              for (i = 0; i < 7; i++) {
+
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
+                              }
                               
-                              while ((n = in.read()) != 44 && n != 59) {
-                                    String p = Character.toString((char) n);
-                                    para = para + p;
-                                    
+                              bo = parametre.get(3).equals("true");
+                              if (parametre.get(6).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
                               }
-                              parametre.add(para);
-                              para = "";
-                              System.out.println(parametre.get(i));
-                        }
+                              simplethuglist.add(new Thug(Integer.parseInt(parametre.get(0)), 
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
+                                       bo, parametre.get(4), parametre.get(5), li));
+                              type = "";
+                              break;   
+                        case "ThugLady":
+                              parametre.clear();
+                              for (i = 0; i < 9; i++) {
 
-                        Lieux li;
-                        if (parametre.get(6).equalsIgnoreCase(lieux[0].name)) {
-                              li = lieux[0];
-                        } else {
-                              li = street;
-                        }
-                        sheriflist.add(new Sherif(Integer.parseInt(parametre.get(0)), Integer.parseInt(parametre.get(1)), parametre.get(2), Integer.parseInt(parametre.get(3)), parametre.get(4), parametre.get(5), li));
-                        type = "";
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
+                              }
+                              
+                              bo = parametre.get(3).equals("true");
+                              boolean bo2 = parametre.get(4).equals("true");
+                              if (parametre.get(8).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
+                              }
+                              thugladylist.add(new ThugLady(Integer.parseInt(parametre.get(0)), 
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
+                                       bo,bo2, parametre.get(5), parametre.get(6),parametre.get(7), li));
+                              type = "";
+                              break;  
+                        case "Cowboy":
+                              parametre.clear();
+                              for (i = 0; i < 6; i++) {
+
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
+                              }
+
+                              if (parametre.get(5).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
+                              }
+                              simplecowboylist.add(new Cowboy(Integer.parseInt(parametre.get(0)), 
+                                       parametre.get(1), Integer.parseInt(parametre.get(2)),
+                                       parametre.get(3), parametre.get(4), li));
+                              type = "";
+                              break;
+                        case "Indian":
+                              parametre.clear();
+                              for (i = 0; i < 5; i++) {
+
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
+                              }
+
+                              if (parametre.get(4).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
+                              }
+                              simpleindianlist.add(new  Indian(Integer.parseInt(parametre.get(0)), 
+                                       parametre.get(1), parametre.get(2),
+                                       parametre.get(3), li));
+                              type = "";
+                              break;
+                        case "BadCop":
+                              parametre.clear();
+                              for (i = 0; i < 10; i++) {
+
+                                    while ((n = in.read()) != 44 && n != 59) {
+                                          String p = Character.toString((char) n);
+                                          para = para + p;
+                                    }
+                                    parametre.add(para);
+                                    para = "";
+                                    System.out.println(parametre.get(i));
+                              }
+                              
+                              bo = parametre.get(3).equals("true");
+                              
+                              if (parametre.get(8).equalsIgnoreCase(lieux[0].name)) {
+                                    li = lieux[0];
+                              } else {
+                                    li = street;
+                              }
+                              thugladylist.add(new ThugLady(Integer.parseInt(parametre.get(0)), 
+                                       Integer.parseInt(parametre.get(1)), parametre.get(2), 
+                                       bo,bo2, parametre.get(5), parametre.get(6),parametre.get(7), li));
+                              type = "";
+                              break;  
+                             
                   }
+                  
+                  
 
             }
 
