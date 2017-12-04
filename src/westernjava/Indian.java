@@ -6,44 +6,47 @@
 package westernjava;
 
 /**
+ * caractérise l'Humain de type Indian
  *
- * @author ISEN
+ * @author Julie Robillart
  */
 public class Indian extends Humain {
 
-    int nbFeather;
-    String totem;
+      int nbFeather;
+      String totem;
 
       /**
+       * construtor
        *
-       * @param nbFeather
-       * @param totem
-       * @param name
-       * @param favoriteDrink
-       * @param lieu
+       * @param nbFeather nombre de plume sur sa coiffe
+       * @param totem nom de son totem
+       * @param name nom du personnage
+       * @param favoriteDrink boisson favorite du personnage
+       * @param lieu lieu actuel du personnage
        */
       public Indian(int nbFeather, String totem, String name, String favoriteDrink, Lieux lieu) {
-        super(name, favoriteDrink, lieu);
-        this.nbFeather = nbFeather;
-        this.totem = totem;
-    }
+            super(name, favoriteDrink, lieu);
+            this.nbFeather = nbFeather;
+            this.totem = totem;
+      }
 
       /**
+       * met en forme lors que le personnage parle
        *
-       * @param blablabla
+       * @param blablabla ce qu'il dit
        */
       @Override
-    public void talk(String blablabla) {
-        System.out.println("L'indien " + name + ": " + blablabla);
-    }
+      public void talk(String blablabla) {
+            System.out.println("L'indien " + name + ": " + blablabla);
+      }
 
       /**
-       *
+       * le personnage se présente
        */
       @Override
-    public void introduceYourself() {
-        action(this.name + " se présente.");
-        talk("Bonjour visage pâle, mon nom est " + name + " " + totem + ". Je fais partie de la tribu à la sortie de la ville.");
-    }
+      public void introduceYourself() {
+            action(this.name + " se présente.");
+            talk("Bonjour visage pâle, mon nom est " + name + " " + totem + ". Je fais partie de la tribu à la sortie de la ville.");
+      }
 
 }

@@ -1,48 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package westernjava;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author ISEN
+ * @author Julie Robillart
  */
-public class MainStreet extends Lieux{
-    Jail jail;
+public class MainStreet extends Lieux {
+
+      Jail jail;
 
       /**
+       * constructor
        *
-       * @param name
-       * @param people
+       * @param name nom de la rue
+       * @param people liste des gens dans la rue
        */
-      public MainStreet( String name, ArrayList<Humain> people) {
-        super(name, people);
-        this.jail = jail;
-    }
-    
-      /**
-       *
-       * @param perso
-       */
-      @Override
-    public void exit(Humain perso){
-        people.remove(perso);
-    }
-    
-      /**
-       *
-       * @param perso
-       */
-      @Override
-    public void entrer(Humain perso){
-        perso.lieu=this;
-        people.add(perso);
-    }
+      public MainStreet(String name, ArrayList<Humain> people) {
+            super(name, people);
+            this.jail = jail;
+      }
 
-   
-    
+      /**
+       * permet a un personnage de quitter le lieu
+       *
+       * @param perso personnage qui quitte le lieu
+       */
+      @Override
+      public void exit(Humain perso) {
+            people.remove(perso);
+      }
+
+      /**
+       * permet à un personnage d'entrer dans le lieux
+       *
+       * @param perso perso personnage qui entre dans le lieu
+       */
+      @Override
+      public void entrer(Humain perso) {
+            perso.lieu = this;
+            people.add(perso);
+      }
+
 }

@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package westernjava;
 
 /**
+ * caractérise l'Humain de type BadCop
  *
- * @author ISEN
+ * @author Julie Robillart
  */
 public class BadCop extends Cowboy implements OutTheLaw {
 
@@ -17,17 +13,18 @@ public class BadCop extends Cowboy implements OutTheLaw {
       Boolean isInJail;
 
       /**
+       * constructor
        *
-       * @param nbKidnappedLady
-       * @param reward
-       * @param look
-       * @param isInJail
-       * @param popularity
-       * @param adjective
-       * @param money
-       * @param name
-       * @param favoriteDrink
-       * @param lieu
+       * @param nbKidnappedLady nombre de fille kidnappées
+       * @param reward récompense sur sa tête
+       * @param look attitude
+       * @param isInJail true si emprisonné
+       * @param popularity popularité
+       * @param adjective adjectif
+       * @param money argent gagné avec les récompenses
+       * @param name nom du personnage
+       * @param favoriteDrink boisson favorite du personnage
+       * @param lieu lieu actuel du personnage
        */
       public BadCop(int nbKidnappedLady, int reward, String look, Boolean isInJail,
                int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
@@ -39,9 +36,10 @@ public class BadCop extends Cowboy implements OutTheLaw {
       }
 
       /**
+       * se faire mettre en prison
        *
-       * @param boy
-       * @param lieux
+       * @param boy le sherif qui te met en prison
+       * @param lieux liste des lieux disponible
        */
       @Override
       public void getInJail(Sherif boy, Lieux[] lieux) {
@@ -52,8 +50,9 @@ public class BadCop extends Cowboy implements OutTheLaw {
       }
 
       /**
+       * ajoute money à la récompense déjà sur la tête du personnage
        *
-       * @param money
+       * @param money la récompense ajoutée
        */
       @Override
       public void addReward(int money) {
@@ -61,8 +60,9 @@ public class BadCop extends Cowboy implements OutTheLaw {
       }
 
       /**
+       * kidnapper une fille
        *
-       * @param girl
+       * @param girl la fille à kidnapper
        */
       @Override
       public void kidnappedLady(Lady girl) {
@@ -74,7 +74,7 @@ public class BadCop extends Cowboy implements OutTheLaw {
       }
 
       /**
-       *
+       * s'echapper de prison
        */
       @Override
       public void escape() {

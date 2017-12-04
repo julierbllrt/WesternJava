@@ -6,110 +6,108 @@
 package westernjava;
 
 /**
+ * caractérise un Humain
  *
  * @author ISEN
  */
 public class Humain {
 
-    String name;
-    String favoriteDrink;
-    Lieux lieu;
+      String name;
+      String favoriteDrink;
+      Lieux lieu;
 
       /**
+       * constructor
        *
-       * @param name
-       * @param favoriteDrink
-       * @param lieu
+       * @param name nom du personnage
+       * @param favoriteDrink boisson favorite du personnage
+       * @param lieu lieu actuel du personnage
        */
       public Humain(String name, String favoriteDrink, Lieux lieu) {
-        this.name = name;
-        this.favoriteDrink = favoriteDrink;
-        this.lieu = lieu;
-        lieu.entrer(this);
-    }
+            this.name = name;
+            this.favoriteDrink = favoriteDrink;
+            this.lieu = lieu;
+            lieu.entrer(this);
+      }
 
       /**
+       * mets en forme sa parole dans la console
        *
-       * @param blablabla
+       * @param blablabla ce qu'il dit
        */
       public void talk(String blablabla) {
-        System.out.println(name + ": " + blablabla);
-    }
+            System.out.println(name + ": " + blablabla);
+      }
 
       /**
+       * mets en forme son action dans la console
        *
        * @param truc
        */
       public void action(String truc) {
-        System.out.println("***" + truc + "***");
-    }
+            System.out.println("***" + truc + "***");
+      }
 
       /**
-       *
+       * permet de se présenter
        */
       public void introduceYourself() {
-        action(this.name + " se présente.");
-        talk("Salut, je m'appelle " + name + ". Je suis nouveau en ville.");
-    }
+            action(this.name + " se présente.");
+            talk("Salut, je m'appelle " + name + ". Je suis nouveau en ville.");
+      }
 
       /**
+       * permet de parler à quelqu'un
        *
-       * @param someone
+       * @param someone le compagnon de parole
        */
       public void talkToSomeone(Humain someone) {
-        introduceYourself();
-        someone.introduceYourself();
+            introduceYourself();
+            someone.introduceYourself();
 
-    }
+      }
 
       /**
+       * permet d'obtenir le nom du personnage
        *
-       * @return
+       * @return le nom du personnage
        */
       public String getName() {
-        return name;
-    }
+            return name;
+      }
 
       /**
+       * permet d'aller à un endroit
        *
-       * @param barman
-       * @return
-       */
-      public String getDrink(Barman barman) {
-        barman.serve(this);
-        return favoriteDrink;
-    }
-
-      /**
-       *
-       * @param lieux
+       * @param lieux la destination
        */
       public void goTo(Lieux lieux) {
-        lieu.exit(this);
-        lieu = lieux;
-        lieu.entrer(this);
-        action(name + " est entré dans " + lieu.name);
-    }
+            lieu.exit(this);
+            lieu = lieux;
+            lieu.entrer(this);
+            action(name + " est entré dans " + lieu.name);
+      }
 
       /**
-       *
+       * permet de sortir d'un endroit
        */
       public void goOut() {
-        lieu.exit(this);
-        action(name + " est sorti sur " + lieu.name);
-    }
+            lieu.exit(this);
+            action(name + " est sorti sur " + lieu.name);
+      }
 
       /**
+       * permet de commander un verre au barman
        *
-       * @param favoriteDrink
+       * @param favoriteDrink le verre qu'il va commander
        */
       public void orderADrink(String favoriteDrink) {
-        Bar bar = (Bar) this.lieu;
-        Barman barman = bar.getBarman();
-        action(name + " a commander un verre");
-        talk("Hey " + barman.name + " donne moi un verre de " + favoriteDrink);
-        barman.serve(this);
+            Bar bar = (Bar) this.lieu;
+            Barman barman = bar.getBarman();
+            action(name + " a commander un verre");
+            talk("Hey " + barman.name + " donne moi un verre de " + favoriteDrink);
+            barman.serve(this);
 
-    }
+      }
 
 }

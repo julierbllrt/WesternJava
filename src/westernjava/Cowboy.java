@@ -6,8 +6,9 @@
 package westernjava;
 
 /**
+ * caractérise l'Humain de type Cowboy
  *
- * @author ISEN
+ * @author Julie Robillart
  */
 public class Cowboy extends Humain {
 
@@ -16,13 +17,14 @@ public class Cowboy extends Humain {
       int money;
 
       /**
+       * constructor
        *
-       * @param popularity
-       * @param adjective
-       * @param money
-       * @param name
-       * @param favoriteDrink
-       * @param lieu
+       * @param popularity popularité
+       * @param adjective adjectif
+       * @param money argent gagné avec les récompenses
+       * @param name nom du personnage
+       * @param favoriteDrink boisson favorite du personnage
+       * @param lieu lieu actuel du personnage
        */
       public Cowboy(int popularity, String adjective, int money, String name, String favoriteDrink, Lieux lieu) {
             super(name, favoriteDrink, lieu);
@@ -32,10 +34,11 @@ public class Cowboy extends Humain {
       }
 
       /**
+       * tirer sur un méchant et l'emprisonner
        *
-       * @param badboy
-       * @param cop
-       * @param lieux
+       * @param badboy le méchant
+       * @param cop le sherif qui va l'emprissoner
+       * @param lieux liste des lieux disponibles
        */
       public void shoot(Thug badboy, Sherif cop, Lieux[] lieux) {
             action(this.name + " tir sur " + badboy.name);
@@ -46,10 +49,11 @@ public class Cowboy extends Humain {
       }
 
       /**
+       * tirer sur un méchant et l'emprisonner
        *
-       * @param badboy
-       * @param cop
-       * @param lieux
+       * @param badboy le méchant
+       * @param cop le sherif qui va l'emprissoner
+       * @param lieux liste des lieux disponibles
        */
       public void shoot(BadCop badboy, Sherif cop, Lieux[] lieux) {
             action(this.name + " tir sur " + badboy.name);
@@ -60,8 +64,9 @@ public class Cowboy extends Humain {
       }
 
       /**
+       * liberer une fille kidnapper
        *
-       * @param girl
+       * @param girl la fille kidnappée
        */
       public void freeTheLady(Lady girl) {
             if (girl.isKidnapped) {
@@ -73,8 +78,9 @@ public class Cowboy extends Humain {
       }
 
       /**
+       * obtenir la récompense
        *
-       * @param badboy
+       * @param badboy le méchant d'où vient la récompense
        */
       public void getReward(Thug badboy) {
             action(this.name + " obtient la récompence sur la tête de " + badboy.name);
@@ -83,8 +89,9 @@ public class Cowboy extends Humain {
       }
 
       /**
+       * obtenir la récompense
        *
-       * @param badboy
+       * @param badboy le méchant d'où vient la récompense
        */
       public void getReward(BadCop badboy) {
             action(this.name + " obtient la récompence sur la tête de " + badboy.name);
@@ -93,7 +100,7 @@ public class Cowboy extends Humain {
       }
 
       /**
-       *
+       * se présenter
        */
       @Override
       public void introduceYourself() {

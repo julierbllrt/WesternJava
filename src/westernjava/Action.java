@@ -5,8 +5,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
+ * affiche et exécute les actions disponibles
  *
- * @author ISEN
+ * @author Julie Robillart
  */
 public class Action {
 
@@ -14,18 +15,13 @@ public class Action {
       Perso perso = new Perso();
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       */
-      public Action() {
-      }
-
-      /**
-       *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type Lady
        */
       public Lady lady(int choice, Lady obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -41,10 +37,9 @@ public class Action {
 
                         case 1:
                               System.out.println("Taper le numero de l'action que vous voulez.");
-                              System.out.println("0 se faire kidnapper");
-                              System.out.println("1 se faire libérer");
+                              System.out.println("1 kidnapper une fille");
                               System.out.println("2 changer de culotte");
-                              System.out.println("3 se présenter");
+                              System.out.println("3 parler à quelqu'un");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -140,12 +135,13 @@ public class Action {
       }
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type ThugLady
        */
       public ThugLady thuglady(int choice, ThugLady obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -160,12 +156,10 @@ public class Action {
                               break;
 
                         case 1:
-                              System.out.println("Taper le numero de l'action que vous "
-                                       + "voulez.");
-                              System.out.println("0 se faire kidnapper");
-                              System.out.println("1 se faire libérer");
+                              System.out.println("Taper le numero de l'action que vous voulez.");
+                              System.out.println("1 kidnapper une fille");
                               System.out.println("2 changer de culotte");
-                              System.out.println("3 se présenter");
+                              System.out.println("3 parler à quelqu'un");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -177,9 +171,7 @@ public class Action {
                                     System.out.println("Taper le numero de l'action que vous "
                                              + "voulez.");
                                     System.out.println("0 aller dans le bar");
-                                    System.out.println("1 kidnapper une fille");
-                                    System.out.println("2 changer de culotte");
-                                    System.out.println("3 parler à quelqu'un");
+
                                     input = scanner.nextLine();
                                     chiffre = Integer.parseInt(input);
 
@@ -278,12 +270,13 @@ public class Action {
       }
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type Cowboy
        */
       public Cowboy cowboy(int choice, Cowboy obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -300,9 +293,10 @@ public class Action {
 
                         case 1:
                               System.out.println("Taper le numero de l'action que vous voulez.");
-                              System.out.println("0 tirer sur un méchant");
-                              System.out.println("1 libere une fille");
-                              System.out.println("2 se présenter");
+                              System.out.println("1 libérer une fille");
+                              System.out.println("2 kidnapper une fille");
+                              System.out.println("3 parler à quelqu'un");
+                              System.out.println("4 tirer sur un méchant");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -440,12 +434,13 @@ public class Action {
       }
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type Shérif
        */
       public Sherif sherif(int choice, Sherif obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -461,9 +456,10 @@ public class Action {
 
                         case 1:
                               System.out.println("Taper le numero de l'action que vous voulez.");
-                              System.out.println("0 tirer sur un méchant");
-                              System.out.println("1 libere une fille");
-                              System.out.println("2 se présenter");
+                              System.out.println("1 libérer une fille");
+                              System.out.println("2 tirer sur un méchant");
+                              System.out.println("3 parler à quelqu'un");
+                              System.out.println("5 mettre une récompense sur la tête d'un méchant");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -475,8 +471,9 @@ public class Action {
                                     System.out.println("Taper le numero de l'action que vous voulez.");
                                     System.out.println("0 aller dans le bar");
                                     System.out.println("1 libérer une fille");
-                                    System.out.println("3 tirer sur un méchant");
-                                    System.out.println("4 parler à quelqu'un");
+                                    System.out.println("2 tirer sur un méchant");
+                                    System.out.println("3 parler à quelqu'un");
+                                    System.out.println("5 mettre une récompense sur la tête d'un méchant");
 
                                     input = scanner.nextLine();
                                     chiffre = Integer.parseInt(input);
@@ -494,6 +491,8 @@ public class Action {
                                     System.out.println("2 tirer sur un méchant");
                                     System.out.println("3 parler à quelqu'un");
                                     System.out.println("4 commander un verre");
+                                    System.out.println("5 mettre une récompense sur la tête d'un méchant");
+
                                     input = scanner.nextLine();
                                     chiffre = Integer.parseInt(input);
 
@@ -543,6 +542,21 @@ public class Action {
                               }
 
                               return obj;
+                        case (5):
+                              int money = random.nextInt(1234)*100;
+                              switch (random.nextInt(2)) {
+                                    case 0:
+                                          Thug badboy = (Thug) perso.randomHumain(2, 5, list);
+                                          obj.searchAThug(badboy,money);
+                                          return obj;
+
+                                    default:
+                                          BadCop badboy2 = (BadCop) perso.randomHumain(2, 4, list);
+                                          obj.searchAThug(badboy2, money);
+                                          return obj;
+                              }
+
+                              
 
                         default:
                               throw new Exception("action inconnu");
@@ -557,12 +571,13 @@ public class Action {
       }
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type BadCop
        */
       public BadCop badcop(int choice, BadCop obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -578,9 +593,10 @@ public class Action {
 
                         case 1:
                               System.out.println("Taper le numero de l'action que vous voulez.");
-                              System.out.println("0 tirer sur un méchant");
-                              System.out.println("1 libere une fille");
-                              System.out.println("2 se présenter");
+                              System.out.println("1 libérer une fille");
+                              System.out.println("2 kidnapper une fille");
+                              System.out.println("3 parler à quelqu'un");
+                              System.out.println("4 tirer sur un méchant");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -682,7 +698,7 @@ public class Action {
                               return obj;
 
                         case (4):
-                              
+
                               switch (random.nextInt(2)) {
                                     case 0:
                                           Thug badboy = (Thug) perso.randomHumain(2, 5, list);
@@ -711,12 +727,13 @@ public class Action {
       }
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type Thug
        */
       public Thug thug(int choice, Thug obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -732,9 +749,8 @@ public class Action {
 
                         case 1:
                               System.out.println("Taper le numero de l'action que vous voulez.");
-                              System.out.println("0 tirer sur un méchant");
-                              System.out.println("1 libere une fille");
-                              System.out.println("2 se présenter");
+                              System.out.println("1 kidnapper une fille");
+                              System.out.println("2 parler à quelqu'un");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -841,12 +857,13 @@ public class Action {
       }
 
       /**
+       * affiche et exécute les actions disponible pour le personnage obj
        *
-       * @param choice
-       * @param obj
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param obj le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type Indian
        */
       public Indian indian(int choice, Indian obj, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {
@@ -863,7 +880,7 @@ public class Action {
 
                         case 1:
                               System.out.println("Taper le numero de l'action que vous voulez.");
-                              System.out.println("0 se présenter");
+                              System.out.println("1 parler à quelqu'un");
                               input = scanner.nextLine();
                               chiffre = Integer.parseInt(input);
                               break;
@@ -874,7 +891,7 @@ public class Action {
                                     System.out.println(obj.name + " est sur " + obj.lieu.name);
                                     System.out.println("Taper le numero de l'action que vous voulez.");
                                     System.out.println("0 aller dans le bar");
-                                    System.out.println("0 parler à quelqu'un");
+                                    System.out.println("1 parler à quelqu'un");
 
                                     input = scanner.nextLine();
                                     chiffre = Integer.parseInt(input);
@@ -937,12 +954,13 @@ public class Action {
       }
 
       /**
+       * redirige vers la fonction correspondante au type de man
        *
-       * @param choice
-       * @param man
-       * @param list_lieux
-       * @param list
-       * @return
+       * @param choice 0 pour random 1 pour choisir 2 pour histoire
+       * @param man le personnage qui effectue l'action
+       * @param list_lieux liste des lieux implémentés
+       * @param list liste des personnages disponibles
+       * @return un personnage de type Humain
        */
       public Humain humain(int choice, Humain man, Lieux[] list_lieux,
                ArrayList<ArrayList<ArrayList<Humain>>> list) {

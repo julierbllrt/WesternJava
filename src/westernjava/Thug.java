@@ -6,91 +6,97 @@
 package westernjava;
 
 /**
+ * caractérise l'Humain de type Thug
  *
- * @author ISEN
+ * @author Julie Robillart
  */
-public class Thug extends Humain implements OutTheLaw{
-    int nbKidnappedLady;
-    int reward;
-    String look;
-    boolean isInJail;
+public class Thug extends Humain implements OutTheLaw {
+
+      int nbKidnappedLady;
+      int reward;
+      String look;
+      boolean isInJail;
 
       /**
+       * constructor
        *
-       * @param nbKidnappedLady
-       * @param reward
-       * @param look
-       * @param isInJail
-       * @param name
-       * @param favoriteDrink
-       * @param lieu
+       * @param nbKidnappedLady nombre de fille kidnappées
+       * @param reward récompense sur sa tête
+       * @param look attitude
+       * @param isInJail true si emprisonné
+       * @param name nom du personnage
+       * @param favoriteDrink boisson favorite du personnage
+       * @param lieu lieu actuel du personnage
        */
       public Thug(int nbKidnappedLady, int reward, String look, boolean isInJail, String name, String favoriteDrink, Lieux lieu) {
-        super(name, favoriteDrink, lieu);
-        this.nbKidnappedLady = nbKidnappedLady;
-        this.reward = reward;
-        this.look = look;
-        this.isInJail = isInJail;
-    }
-   
-      /**
-       *
-       */
-      @Override
-    public void escape(){
-        if(this.isInJail){
-            isInJail = false;
-            action(this.name+" s'échappe");
-            talk("Je suis liiibre!!!");
-            this.goOut();
-        }
-    }
-    
-      /**
-       *
-       */
-      @Override
-    public void introduceYourself(){
-        action(this.name+" se présente.");
-        talk("J'suis "+ name +". Je vais mettre cette ville à feu et à sang.");
-    }
+            super(name, favoriteDrink, lieu);
+            this.nbKidnappedLady = nbKidnappedLady;
+            this.reward = reward;
+            this.look = look;
+            this.isInJail = isInJail;
+      }
 
       /**
-       *
-       * @param girl
+       * s'echapper de prison
        */
       @Override
-    public void kidnappedLady(Lady girl) {
-        if(!girl.isKidnapped){
-            action(this.name+" kidnappe "+girl.name);
-            talk(girl.name+", tu es à moi maintenant!");
-            nbKidnappedLady++;
-            girl.getKidnapped(this);
-        }        
-    }
+      public void escape() {
+            if (this.isInJail) {
+                  isInJail = false;
+                  action(this.name + " s'échappe");
+                  talk("Je suis liiibre!!!");
+                  this.goOut();
+            }
+      }
 
       /**
-       *
-       * @param boy
-       * @param lieux
+       * se présenter
        */
       @Override
-    public void getInJail(Sherif boy, Lieux[] lieux){
-        action(boy.name+" a mis "+this.name+" en prison");
-        talk("Merde! Je me vengerais "+boy.name+"!");
-        isInJail=true;
-        this.goTo(lieux[1]);
-        boy.money+=reward;
-    }
+      public void introduceYourself() {
+            action(this.name + " se présente.");
+            talk("J'suis " + name + ". Je vais mettre cette ville à feu et à sang.");
+      }
 
       /**
+       * kidnapper une fille
        *
-       * @param money
+       * @param girl la fille à kidnapper
        */
       @Override
-    public void addReward(int money) {
-        reward+=money;
-        action("money="+reward);
-    }
-    
+      public void kidnappedLady(Lady girl) {
+            if (!girl.isKidnapped) {
+                  action(this.name + " kidnappe " + girl.name);
+                  talk(girl.name + ", tu es à moi maintenant!");
+                  nbKidnappedLady++;
+                  girl.getKidnapped(this);
+            }
+      }
+
+      /**
+       * se faire mettre en prison
+       *
+       * @param boy le sherif qui te met en prison
+       * @param lieux liste des lieux disponible
+       */
+      @Override
+      public void getInJail(Sherif boy, Lieux[] lieux) {
+            action(boy.name + " a mis " + this.name + " en prison");
+            talk("Merde! Je me vengerais " + boy.name + "!");
+            isInJail = true;
+            this.goTo(lieux[1]);
+            boy.money += reward;
+      }
+
+      /**
+       * ajoute money à la récompense déjà sur la tête du personnage
+       *
+       * @param money la récompense ajoutée
+       */
+      @Override
+      public void addReward(int money) {
+            reward += money;
+            action("money = " + reward);
+      }
+
 }

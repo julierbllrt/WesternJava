@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author ISEN
+ * @author Julie Robillart
  */
 public class WesternJava {
 
@@ -19,8 +19,9 @@ public class WesternJava {
       static Choice choice = new Choice();
 
       /**
+       * affiche le numéro ainsi que le nom des personnage de la liste entré en paramètre
        *
-       * @param list
+       * @param list liste de personnage à afficher
        */
       public static void printList(ArrayList<ArrayList<Humain>> list) {
 
@@ -32,8 +33,10 @@ public class WesternJava {
       }
 
       /**
+       * affiche le numéro le nom des personnage de la liste entré en paramètre ainsi que certain
+       * paramètre en fonction du type de personnage
        *
-       * @param c
+       * @param c int correspondant au type à afficher (ex:0 pour Lady , 4 pour Indien)
        */
       public static void displayPerso(int c) {
             for (int n = 0; n < list.get(c).size(); n++) {
@@ -121,17 +124,18 @@ public class WesternJava {
             //Creation personnage par lecture fichier
             String fileName = "initialisation.txt";
             FileReader inp = new FileReader(fileName);
-            int nb_line = 0;int r;
+            int nb_line = 0;
+            int r;
             while ((r = inp.read()) != 47) {
-                  if (r==59){
-                     nb_line++;   
+                  if (r == 59) {
+                        nb_line++;
                   }
-                  
+
             }
-           
+
             inp.close();
             FileReader in = new FileReader(fileName);
-          
+
             //System.out.println("nombre de ligne" + result);
             int i, c, n;
 

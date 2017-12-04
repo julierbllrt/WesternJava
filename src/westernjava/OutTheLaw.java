@@ -6,32 +6,36 @@
 package westernjava;
 
 /**
+ * caractérise l'Humain appartenant à l'interface OutTheLaw
  *
- * @author ISEN
+ * @author Julie Robillart
  */
 public interface OutTheLaw {
 
       /**
+       * permet de kidnapper une fille
        *
-       * @param girl
+       * @param girl Lady qui est kidnappé
        */
       void kidnappedLady(Lady girl);
 
       /**
+       * met le personnage en prison
        *
-       * @param boy
-       * @param lieux
+       * @param boy sherif qui met en prison le personnage
+       * @param lieux liste de lieux disponibles
        */
-      void getInJail(Sherif boy,Lieux[] lieux);
+      void getInJail(Sherif boy, Lieux[] lieux);
 
       /**
+       * ajoute de l'argent à la récompense
        *
-       * @param money
+       * @param money int correspondant à l'argent ajouter à la récompense
        */
       void addReward(int money);
 
       /**
-       *
+       * le personnage s'echappe de prison
        */
       void escape();
 
